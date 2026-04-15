@@ -1,171 +1,358 @@
 <!DOCTYPE html>
 <html lang="gl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Lira de Ribadavia</title>
+
+  <!-- SEO BASICO -->
+  <title>A Lira de Ribadavia | Banda de Música e Asociación Cultural</title>
+  <meta name="description"
+    content="A Lira de Ribadavia é unha banda de música e asociación cultural dedicada á formación musical e actividade cultural en Ribadavia." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://bandalira.github.io/" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="A Lira de Ribadavia" />
+  <meta property="og:description" content="Banda de música e asociación cultural en Ribadavia." />
+  <meta property="og:image" content="https://bandalira.github.io/imaxe.jpg" />
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["MusicGroup", "LocalBusiness"],
+  "name": "A Lira de Ribadavia",
+  "alternateName": "Banda de Música A Lira de Ribadavia",
+  "description": "Banda de música popular e asociación cultural de referencia en Ribadavia (Ourense), dedicada á formación musical e actividade cultural.",
+  "email": "banda@lira.gal",
+  "telephone": "+34626658976",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rúa Redondela, s/n",
+    "postalCode": "32400",
+    "addressLocality": "Ribadavia",
+    "addressRegion": "Ourense",
+    "addressCountry": "ES"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Ribadavia"
+  },
+  "keywords": "banda de música Ribadavia, banda de música Ourense, música popular galega, escola de música Ribadavia",
+  "sameAs": [
+    "https://www.instagram.com/bandalira/",
+    "https://www.facebook.com/LiraRibadavia",
+    "https://www.youtube.com/@LiraRibadavia"
+  ]
+}
+</script>
+
   <style>
-    body { font-family: Arial, sans-serif; }
+    :root {
+      --primary: #8B1E2D;
+      --secondary: #C9A227;
+      --bg-soft: #faf7f2;
+      --text: #1f1f1f;
+      --border: #e6e0d8;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary);
+      color: #fff;
+      padding: 8px;
+      z-index: 9999;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
 
     .navbar {
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: top 0.3s;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--secondary) !important;
+      font-weight: 600;
     }
 
     header {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d');
+      background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('imaxe.jpg');
       background-size: cover;
-      background-position: center;
+      background-position: center 80%;
       color: white;
-      padding: 120px 0;
+      padding: 110px 0;
       text-align: center;
+      border-bottom: 4px solid var(--secondary);
     }
 
-    section { padding: 60px 20px; }
-    .bg-light-gray { background: #f8f9fa; }
+    section {
+      padding: 48px 0;
+    }
 
-    .btn-primary { background-color: #c0392b; border: none; }
+    .section-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .section-alt {
+      background: var(--bg-soft);
+    }
+
+    h2 {
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #6f1724;
+    }
+
+    a {
+      color: var(--primary);
+    }
+
+    a:hover {
+      color: var(--secondary);
+    }
+
+    .legal-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--secondary);
+      padding: 32px;
+      border-radius: 12px;
+    }
 
     footer {
       background: #111;
-      color: white;
-      padding: 40px 20px;
+      color: #fff;
+      padding: 48px 0;
     }
 
-    footer a { color: #fff; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    footer a {
+      color: #fff;
+      margin-right: 12px;
+      text-decoration: none;
+    }
 
-    .social i { font-size: 20px; margin-right: 10px; }
+    footer a:hover {
+      color: var(--secondary);
+    }
+
+    .contact-line {
+      margin-bottom: 10px;
+    }
+
+    .contact i {
+      margin-right: 8px;
+      color: var(--secondary);
+    }
   </style>
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">A Lira</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <a class="skip-link" href="#inicio">Saltar ao contido</a>
 
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#banda">A Banda</a></li>
-        <li class="nav-item"><a class="nav-link" href="#escola">Escola</a></li>
-        <li class="nav-item"><a class="nav-link" href="#socios">Asociarse</a></li>
-        <li class="nav-item"><a class="nav-link" href="#redes">Contacto</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio">
+        <i class="fa-solid"></i> A Lira de Ribadavia
+      </a>
 
-<header id="inicio">
-  <div class="container">
-    <h1 class="display-4">A Lira de Ribadavia</h1>
-    <p class="lead">Asociación cultural e musical</p>
-  </div>
-</header>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-<section class="bg-light-gray">
-  <div class="container">
-    <h2>Quen somos</h2>
-    <p>A Lira de Ribadavia é unha asociación cultural dedicada á promoción da música, formación musical e actividade social na contorna de Ribadavia.</p>
-  </div>
-</section>
-
-<section id="banda">
-  <div class="container">
-    <h2>A Banda</h2>
-    <p>Formación musical activa en concertos, eventos culturais e festas populares.</p>
-
-    <h3 class="mt-4">Estatutos da asociación cultural</h3>
-    <p>Os estatutos regulan o funcionamento da Asociación Cultural Liradavia, os dereitos e deberes das persoas socias e a súa organización interna.</p>
-    <p><a href="#">Descargar estatutos</a></p>
-
-    <h3 class="mt-4">Historia</h3>
-    <p>(Engadir resumo da historia e enlace á páxina completa)</p>
-    <a class="btn btn-primary" href="historia.html">Ler historia completa</a>
-  </div>
-</section>
-
-<section id="escola" class="bg-light-gray">
-  <div class="container">
-    <h2>Escola de Música</h2>
-
-    <p>A escola de música é o espazo formativo da asociación onde se desenvolve a educación musical do alumnado.</p>
-
-    <ul>
-      <li>Formación musical para todas as idades</li>
-      <li>Clases de instrumento e linguaxe musical</li>
-      <li>Preparación para integrarse na banda</li>
-      <li>Actividade educativa e cultural continua</li>
-    </ul>
-
-    <p><strong>Número de rexistro legal:</strong> (engadir número oficial da asociación)</p>
-  </div>
-</section>
-
-<section id="socios">
-  <div class="container">
-    <h2>Asociarse</h2>
-
-    <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#formulario">
-      Ver formulario de inscrición
-    </button>
-
-    <div id="formulario" class="collapse mt-3">
-      <div class="ratio ratio-16x9">
-        <iframe src="https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true"></iframe>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#banda">Banda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#escola">Escola</a></li>
+          <li class="nav-item"><a class="nav-link" href="#socios">Asociarse</a></li>
+          <li class="nav-item"><a class="nav-link" href="#legal">Asociación</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <h3 class="mt-5">Colaboracións</h3>
-    <p>
-      Titular: Asociación Cultural Liradavia<br>
-      IBAN: ESXX XXXX XXXX XXXX XXXX XXXX<br>
-      Concepto: Colaboración
-    </p>
-  </div>
-</section>
-
-<section id="redes" class="bg-light-gray">
-  <div class="container">
-    <h2>Contacto e redes</h2>
-
-    <p><strong>Email:</strong> banda@lira.gal</p>
-    <p><strong>Teléfono:</strong> 626 658 976</p>
-
-    <div class="social">
-      <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br>
-      <a href="#"><i class="fab fa-facebook"></i> Facebook</a><br>
-      <a href="#"><i class="fab fa-youtube"></i> YouTube</a><br>
-      <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+  <header id="inicio">
+    <div class="container">
+      <h1 class="display-4">A Lira de Ribadavia</h1>
+      <p class="lead">A banda de música máis antiga da Galiza</p>
     </div>
-  </div>
-</section>
+  </header>
 
-<footer>
-  <div class="container">
-    <p><strong>Asociación Cultural Liradavia</strong></p>
-    <p>Email: banda@lira.gal | Tel: 626 658 976</p>
+  <section id="banda">
+    <div class="section-inner">
+      <div class="section-card">
+        <h2>Quen somos e A Banda</h2>
+        <p>Fundada en 1840, A Lira de Ribadavia representa a esencia da música popular galega e é un referente na formación musical da comunidade ribadaviense.</p>
+        <p>A nosa agrupación está composta por músicos apaixonados pola música, dende os máis veteranos ata os novos integrantes que se forman na nosa escola. Participamos en concertos, festas populares, certames musicais e eventos culturais.</p>
+        <h3>A Banda</h3>
+        <p>Contamos cun repertorio variado que inclúe pezas clásicas, música popular galega e composicións modernas. Os nosos concertos destacan pola calidade interpretativa e o espírito comunitario que nos caracteriza.</p>
+        <p>Ademais da actividade musical, A Lira promove a cultura e a educación musical a través da Escola de Música Mestre Veneroni, onde se forman xeracións de músicos.</p>
+        <a class="btn btn-primary" href="historia.html">Ler historia completa</a>
+      </div>
+    </div>
+  </section>
 
-    <p class="social">
-      <a href="#">Instagram</a> | 
-      <a href="#">Facebook</a> | 
-      <a href="#">YouTube</a> | 
-      <a href="#">TikTok</a>
-    </p>
+  <section id="escola" class="section-alt">
+    <div class="section-inner">
+      <div class="section-card">
+        <h2>Escola de Música Mestre Veneroni</h2>
+        <p>A Escola de Música Mestre Veneroni é o corazón formativo da Asociación Cultural Liradavia. Ofrecemos educación musical de calidade para todas as idades, dende nenos ata adultos, fomentando o amor pola música e a integración na banda.</p>
 
-    <p class="mt-3">© 2026 A Lira de Ribadavia</p>
-  </div>
-</footer>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>O que ofrecemos</h4>
+            <ul>
+              <li><i class="fa-solid fa-music"></i> Clases individuais de instrumento</li>
+              <li><i class="fa-solid fa-users"></i> Linguaxe musical e teoría</li>
+              <li><i class="fa-solid fa-drum"></i> Música de conxunto e coro</li>
+              <li><i class="fa-solid fa-graduation-cap"></i> Preparación para exames e certames</li>
+              <li><i class="fa-solid fa-heart"></i> Formación integral musical</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h4>Instrumentos</h4>
+            <p>Frauta travesa, clarinete, saxofón, trompeta, trompa, trombón, bombardino, tuba, percusión e moitos máis.</p>
+            <p><strong>Código de centro:</strong> 32020859</p>
+            <p>Centro de estudos recoñecido pola Xunta de Galicia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <section id="socios">
+    <div class="section-inner">
+      <div class="section-card">
+        <h2>Asociarse</h2>
+        <p>Únete á nosa comunidade musical e axúdanos a manter viva a tradición das bandas de música en Ribadavia. A túa colaboración fai posible a formación de novos músicos e a organización de concertos e eventos culturais.</p>
+        <p><strong>Cotas anuais:</strong> dende 20€ individuais · dende 50€ establecementos.</p>
+        <p>Os establecementos colaboradores teñen o beneficio extra de que o seu logo aparecerá nos carteis das nosas actividades.</p>
+
+        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#formulario">Asociarse</button>
+
+        <div id="formulario" class="collapse mt-3">
+          <div class="ratio ratio-16x9">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSdSzQqVbrzzFPimYB0MWAKAo0jb91WI0owaoDZkNtCUPO9N3Q/viewform?embedded=true"
+              width="640" height="4203" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="colaboracion" class="section-alt">
+    <div class="section-inner">
+      <div class="section-card">
+        <h2>Colaboracións e doazóns</h2>
+        <p>Se queres apoiar o noso proxecto musical, podes facer unha doazón económica. Toda axuda é benvida para manter a actividade da banda e a escola.</p>
+        <p><strong>IBAN:</strong> ES80 2080 5332 8130 4003 3885</p>
+        <p><strong>Beneficiario:</strong> ASOC.CULTURAL LIRADAVIA</p>
+        <p>Grazas polo teu apoio!</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="legal">
+    <div class="section-inner">
+      <div class="legal-card">
+        <h2>Asociación Cultural Liradavia</h2>
+        <p><strong>NIF:</strong> G32408353 | <strong>N.º rexistro:</strong> 14388 | <strong>Data de inscrición:</strong> 23 de xuño de 2010</p>
+        <p>A Asociación Cultural Liradavia ten como obxectivo principal a promoción e difusión da cultura musical en Ribadavia, especialmente a través das bandas de música populares. Desenvolvemos actividades educativas, culturais e musicais para enriquecer a comunidade.</p>
+        <p><a href="#" class="btn btn-outline-primary">📄 Estatutos da Asociación</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section-alt">
+    <div class="section-inner">
+      <div class="section-card">
+        <h2>Contacto</h2>
+        <p>Estamos encantados de escoitar de ti! Contacta connosco para calquera consulta sobre a banda, a escola de música ou como asociarte.</p>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="contact-line">
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:banda@lira.gal">banda@lira.gal</a>
+            </div>
+
+            <div class="contact-line">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:+34626658976">626 658 976</a>
+            </div>
+
+            <div class="contact-line">
+              <i class="fa-brands fa-whatsapp"></i>
+              <a href="https://wa.me/34626658976">WhatsApp</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="contact-line">
+              <i class="fa-solid fa-map-marker-alt"></i> Rúa Redondela, s/n<br>
+              32400 Ribadavia, Ourense (Galicia)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center">
+      <p> Lira de Ribadavia</p>
+      <div class="contact-line">
+          <a href="https://www.instagram.com/bandalira/"><i class="fa-brands fa-instagram"></i> Instagram</a> |
+          <a href="https://www.facebook.com/LiraRibadavia"><i class="fa-brands fa-facebook"></i> Facebook</a> |
+          <a href="https://www.youtube.com/@LiraRibadavia"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
