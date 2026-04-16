@@ -11,7 +11,7 @@
             <a
               class="sponsor-card"
               role="listitem"
-              {% if sponsor.url %}href="{{ sponsor.url }}" target="_blank" rel="noopener noreferrer"{% endif %}
+              {% if sponsor.url %}href="{{ sponsor.url }}{% if "?" in sponsor.url %}&{% else %}?{% endif %}utm_source=lira.gal&utm_medium=referral&utm_campaign=sponsors" target="_blank" rel="noopener noreferrer"{% endif %}
               aria-label="{{ sponsor.name }}{% if sponsor.url %} (abre nunha nova xanela){% endif %}">
               {% if sponsor.logo %}
                 <img src="{{ sponsor.logo }}" alt="{{ sponsor.alt or sponsor.name }}" loading="lazy">
@@ -27,7 +27,7 @@
               role="none"
               aria-hidden="true"
               tabindex="-1"
-              {% if sponsor.url %}href="{{ sponsor.url }}" target="_blank" rel="noopener noreferrer"{% endif %}>
+              {% if sponsor.url %}href="{{ sponsor.url }}{% if "?" in sponsor.url %}&{% else %}?{% endif %}utm_source=lira.gal&utm_medium=referral&utm_campaign=sponsors" target="_blank" rel="noopener noreferrer"{% endif %}>
               {% if sponsor.logo %}
                 <img src="{{ sponsor.logo }}" alt="{{ sponsor.alt or sponsor.name }}" loading="lazy">
               {% else %}
