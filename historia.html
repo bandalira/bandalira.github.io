@@ -166,16 +166,6 @@
       color: #6f1724;
     }
 
-    a:focus-visible,
-    button:focus-visible,
-    .btn:focus-visible,
-    .nav-link:focus-visible,
-    .navbar-brand:focus-visible,
-    .navbar-toggler:focus-visible {
-      outline: 3px solid var(--secondary);
-      outline-offset: 3px;
-    }
-
     .premios {
       list-style: none;
       padding: 0;
@@ -337,16 +327,6 @@
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .toc-icon {
-        transition: none;
-      }
-    }
-
     footer {
       background: #111;
       color: #fff;
@@ -366,24 +346,19 @@
     .contact-line {
       margin-bottom: 8px;
     }
-
-    .footer-muted {
-      color: #b7b7b7;
-    }
   </style>
 </head>
 
 <body>
 
-  <a class="skip-link" href="#main-content">Saltar ao contido principal</a>
+  <a class="skip-link" href="#inicio">Saltar ao contido</a>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <i class="fa-solid" aria-hidden="true"></i> A Lira de Ribadavia
+        <i class="fa-solid"></i> A Lira de Ribadavia
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
-        aria-expanded="false" aria-label="Abrir ou pechar o menú de navegación">
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -416,7 +391,7 @@
               <strong class="toc-heading">Índice</strong>
               <button class="toc-toggle" type="button" aria-expanded="false" aria-controls="historia-toc-list">
                 <span>Índice</span>
-                <span class="toc-icon" aria-hidden="true"><i class="fa-solid fa-chevron-up" aria-hidden="true"></i></span>
+                <span class="toc-icon" aria-hidden="true"><i class="fa-solid fa-chevron-up"></i></span>
               </button>
               <ul class="toc-list" id="historia-toc-list">
                 <li><a href="#nacemento">Das orixes ao primeiro esplendor</a></li>
@@ -429,7 +404,7 @@
             </div>
           </aside>
 
-          <main class="col-12 col-lg-9" id="main-content">
+          <main class="col-12 col-lg-9">
             <section id="nacemento">
               <h2>Das orixes ao primeiro esplendor</h2>
               <h3>Unha tradición que vén de lonxe</h3>
@@ -748,38 +723,38 @@
       <div class="row text-center text-md-start gy-4">
         <div class="col-md-4">
           <p class="fw-bold mb-1" style="color:var(--secondary)">A Lira de Ribadavia</p>
-          <p class="mb-0 footer-muted" style="font-size:0.9rem;">Banda de música e asociación cultural dende 1840.</p>
+          <p class="mb-0" style="font-size:0.9rem;color:#aaa;">Banda de música e asociación cultural dende 1840.</p>
         </div>
         <div class="col-md-4">
           <p class="fw-bold mb-2" style="color:var(--secondary)">Contacto</p>
           <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-solid fa-envelope me-2" aria-hidden="true"></i><a href="mailto:banda@lira.gal">banda@lira.gal</a>
+            <i class="fa-solid fa-envelope me-2"></i><a target="_blank" href="mailto:banda@lira.gal">banda@lira.gal</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-solid fa-phone me-2" aria-hidden="true"></i><a href="tel:+34626658976">626 658 976</a>
+            <i class="fa-solid fa-phone me-2"></i><a href="tel:+34626658976">626 658 976</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-brands fa-whatsapp me-2" aria-hidden="true"></i><a target="_blank" rel="noopener noreferrer" href="https://wa.me/34626658976" aria-label="WhatsApp (abre nunha nova xanela)">WhatsApp</a>
+            <i class="fa-brands fa-whatsapp me-2"></i><a href="https://wa.me/34626658976">WhatsApp</a>
           </div>
         </div>
         <div class="col-md-4">
           <p class="fw-bold mb-2" style="color:var(--secondary)">Redes sociais</p>
           <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/bandalira/" aria-label="Instagram (abre nunha nova xanela)"><i
-                class="fa-brands fa-instagram me-2" aria-hidden="true"></i>Instagram</a>
+            <a target="_blank" href="https://www.instagram.com/bandalira/"><i
+                class="fa-brands fa-instagram me-2"></i>Instagram</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/LiraRibadavia" aria-label="Facebook (abre nunha nova xanela)"><i
-                class="fa-brands fa-facebook me-2" aria-hidden="true"></i>Facebook</a>
+            <a target="_blank" href="https://www.facebook.com/LiraRibadavia"><i
+                class="fa-brands fa-facebook me-2"></i>Facebook</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@LiraRibadavia" aria-label="YouTube (abre nunha nova xanela)"><i
-                class="fa-brands fa-youtube me-2" aria-hidden="true"></i>YouTube</a>
+            <a target="_blank" href="https://www.youtube.com/@LiraRibadavia"><i
+                class="fa-brands fa-youtube me-2"></i>YouTube</a>
           </div>
         </div>
       </div>
       <hr style="border-color:#333;margin-top:32px;">
-      <p class="text-center mb-0 footer-muted" style="font-size:0.8rem;">A Lira de Ribadavia · Rúa Redondela s/n, 32400
+      <p class="text-center mb-0" style="font-size:0.8rem;color:#666;">A Lira de Ribadavia · Rúa Redondela s/n, 32400
         Ribadavia</p>
     </div>
   </footer>
@@ -793,10 +768,8 @@
     const tocToggle = document.querySelector(".toc-toggle");
     const navbar = document.querySelector(".navbar");
     const mobileQuery = window.matchMedia("(max-width: 991px)");
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     let lastScroll = window.pageYOffset;
-    let scrollTicking = false;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -806,13 +779,7 @@
           const id = entry.target.getAttribute("id");
 
           navLinks.forEach(link => {
-            const isActive = link.getAttribute("href") === "#" + id;
-            link.classList.toggle("active", isActive);
-            if (isActive) {
-              link.setAttribute("aria-current", "location");
-            } else {
-              link.removeAttribute("aria-current");
-            }
+            link.classList.toggle("active", link.getAttribute("href") === "#" + id);
           });
         });
       },
@@ -837,8 +804,7 @@
       tocWrapper.style.setProperty("--nav-height", navbar.offsetHeight + "px");
     }
 
-    function scrollToSection(sectionId, options = {}) {
-      const { updateHash = true, behavior } = options;
+    function scrollToSection(sectionId, updateHash = true) {
       const targetSection = document.querySelector(sectionId);
       if (!targetSection) return;
 
@@ -848,7 +814,7 @@
 
       window.scrollTo({
         top: Math.max(0, targetTop),
-        behavior: behavior ?? (prefersReducedMotion.matches ? "auto" : "smooth")
+        behavior: "smooth"
       });
 
       if (updateHash) {
@@ -880,43 +846,15 @@
       lastScroll = currentScroll;
     }
 
-    function requestSyncTocVisibility() {
-      if (scrollTicking) return;
-
-      scrollTicking = true;
-      window.requestAnimationFrame(() => {
-        syncTocVisibility();
-        scrollTicking = false;
-      });
-    }
-
     updateTop();
     syncTocVisibility();
-
-    if (window.location.hash) {
-      window.addEventListener("load", () => {
-        scrollToSection(window.location.hash, { updateHash: false, behavior: "auto" });
-      }, { once: true });
-    }
 
     window.addEventListener("resize", () => {
       updateTop();
       syncTocVisibility();
     });
 
-    window.addEventListener("scroll", requestSyncTocVisibility, { passive: true });
-
-    window.addEventListener("hashchange", () => {
-      if (window.location.hash) {
-        scrollToSection(window.location.hash, { updateHash: false });
-      }
-    });
-
-    window.addEventListener("popstate", () => {
-      if (window.location.hash) {
-        scrollToSection(window.location.hash, { updateHash: false, behavior: "auto" });
-      }
-    });
+    window.addEventListener("scroll", syncTocVisibility, { passive: true });
 
     tocToggle.addEventListener("click", () => {
       const isOpen = tocWrapper.classList.toggle("open");
@@ -936,12 +874,6 @@
 
         scrollToSection(sectionId);
       });
-    });
-
-    document.addEventListener("click", (event) => {
-      if (!mobileQuery.matches || !tocWrapper.classList.contains("open")) return;
-      if (tocWrapper.contains(event.target)) return;
-      closeToc();
     });
   </script>
 
