@@ -1,0 +1,46 @@
+<section class="sponsors-section" aria-labelledby="patrocinadores-title">
+  <div class="section-inner">
+    <p class="sponsors-kicker">Entidades colaboradoras</p>
+    <h2 id="patrocinadores-title">Quen apoia a actividade da Lira</h2>
+    <p>Empresas e entidades que colaboran coa nosa actividade.</p>
+
+    {% if sponsors.length %}
+      <div class="sponsors-marquee">
+        <div class="sponsors-track" role="list">
+          {% for sponsor in sponsors %}
+            <a
+              class="sponsor-card"
+              role="listitem"
+              href="{{ sponsor.url if sponsor.url else '#' }}"
+              {% if sponsor.url %}target="_blank" rel="noopener noreferrer"{% endif %}
+              aria-label="{{ sponsor.name }}{% if sponsor.url %} (abre nunha nova xanela){% endif %}">
+              {% if sponsor.logo %}
+                <img src="{{ sponsor.logo }}" alt="{{ sponsor.alt or sponsor.name }}" loading="lazy">
+              {% else %}
+                <span class="sponsor-name">{{ sponsor.name }}</span>
+              {% endif %}
+            </a>
+          {% endfor %}
+          <!-- Duplicado para crear o efecto de scroll infinito continuo -->
+          {% for sponsor in sponsors %}
+            <a
+              class="sponsor-card"
+              role="none"
+              aria-hidden="true"
+              tabindex="-1"
+              href="{{ sponsor.url if sponsor.url else '#' }}"
+              {% if sponsor.url %}target="_blank" rel="noopener noreferrer"{% endif %}>
+              {% if sponsor.logo %}
+                <img src="{{ sponsor.logo }}" alt="{{ sponsor.alt or sponsor.name }}" loading="lazy">
+              {% else %}
+                <span class="sponsor-name">{{ sponsor.name }}</span>
+              {% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      <p class="sponsors-empty">Espazo reservado para colaboradores.</p>
+    {% endif %}
+  </div>
+</section>

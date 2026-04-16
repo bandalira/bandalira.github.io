@@ -1,0 +1,97 @@
+<style>
+    .sponsors-section {
+      background: linear-gradient(180deg, var(--bg-soft) 0%, #fff 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 0;
+    }
+
+    .sponsors-kicker {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--secondary);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .sponsors-marquee {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin-top: 24px;
+      /* Mascaras de desvanecemento aos lados */
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .sponsors-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: scroll-sponsors 45s linear infinite;
+    }
+
+    .sponsors-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll-sponsors {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        /* Desprazamento exacto para facer o bucle infinito sen saltos: 50% do total + a metade do gap (10px) */
+        transform: translateX(calc(-50% - 10px));
+      }
+    }
+
+    .sponsor-card {
+      min-height: 104px;
+      width: 180px; /* Ancho fixo para que caiban uns 5 na páxina central */
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .sponsor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-color: rgba(139, 30, 45, 0.3);
+    }
+
+    .sponsor-card img {
+      width: 100%;
+      height: 100%;
+      max-height: 72px;
+      object-fit: contain;
+      display: block;
+      /* Isto axudará a que se mesturen mellor os que teñan fondo branco */
+      mix-blend-mode: multiply;
+    }
+
+    .sponsor-name {
+      color: var(--text);
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .sponsors-empty {
+      margin: 0;
+      color: #5d5d5d;
+      font-size: 0.95rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sponsor-card {
+        transition: none;
+      }
+    }
+</style>

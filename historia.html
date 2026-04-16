@@ -1,3 +1,6 @@
+---
+permalink: /historia/index.html
+---
 <!DOCTYPE html>
 <html lang="gl">
 
@@ -24,7 +27,7 @@
   <meta name="description"
     content="A historia da Lira de Ribadavia, unha banda de música con case 200 anos de traxectoria musical." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://lira.gal/historia.html" />
+  <link rel="canonical" href="https://lira.gal/historia/" />
 
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="article" />
@@ -32,7 +35,7 @@
   <meta property="og:description"
     content="Un percorrido pola traxectoria musical e cultural da banda de música A Lira de Ribadavia." />
   <meta property="og:image" content="https://lira.gal/imaxe.jpg" />
-  <meta property="og:url" content="https://lira.gal/historia.html" />
+  <meta property="og:url" content="https://lira.gal/historia/" />
 
   <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -52,7 +55,7 @@
     "name": "A Lira de Ribadavia"
   },
   "datePublished": "2024-01-01",
-  "url": "https://bandalira.github.io/historia.html"
+  "url": "https://lira.gal/historia/"
 }
 </script>
 
@@ -126,6 +129,19 @@
       max-width: 980px;
       margin: 0 auto;
       padding: 0 24px;
+    }
+
+    /* Unificar o ancho de pantalla global */
+    .container {
+      max-width: 980px !important;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        /* 24px de section-inner + 32px de section-card para alinear co texto interior */
+        padding-left: 56px !important;
+        padding-right: 56px !important;
+      }
     }
 
     .section-card {
@@ -347,6 +363,7 @@
       margin-bottom: 8px;
     }
   </style>
+  {% include "sponsors-styles.njk" %}
 </head>
 
 <body>
@@ -355,7 +372,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="/">
         <i class="fa-solid"></i> A Lira de Ribadavia
       </a>
       <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
@@ -364,12 +381,12 @@
 
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html#inicio">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#banda">Banda</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#escola">Escola</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#socios">Asociarse</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#legal">Asociación</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#banda">Banda</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#escola">Escola</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#socios">Asociarse</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#legal">Asociación</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#contacto">Contacto</a></li>
         </ul>
       </div>
     </div>
@@ -718,46 +735,8 @@
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <div class="row text-center text-md-start gy-4">
-        <div class="col-md-4">
-          <p class="fw-bold mb-1" style="color:var(--secondary)">A Lira de Ribadavia</p>
-          <p class="mb-0" style="font-size:0.9rem;color:#aaa;">Banda de música e asociación cultural dende 1840.</p>
-        </div>
-        <div class="col-md-4">
-          <p class="fw-bold mb-2" style="color:var(--secondary)">Contacto</p>
-          <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-solid fa-envelope me-2"></i><a target="_blank" href="mailto:banda@lira.gal">banda@lira.gal</a>
-          </div>
-          <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-solid fa-phone me-2"></i><a href="tel:+34626658976">626 658 976</a>
-          </div>
-          <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-brands fa-whatsapp me-2"></i><a href="https://wa.me/34626658976">WhatsApp</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <p class="fw-bold mb-2" style="color:var(--secondary)">Redes sociais</p>
-          <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" href="https://www.instagram.com/bandalira/"><i
-                class="fa-brands fa-instagram me-2"></i>Instagram</a>
-          </div>
-          <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" href="https://www.facebook.com/LiraRibadavia"><i
-                class="fa-brands fa-facebook me-2"></i>Facebook</a>
-          </div>
-          <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" href="https://www.youtube.com/@LiraRibadavia"><i
-                class="fa-brands fa-youtube me-2"></i>YouTube</a>
-          </div>
-        </div>
-      </div>
-      <hr style="border-color:#333;margin-top:32px;">
-      <p class="text-center mb-0" style="font-size:0.8rem;color:#666;">A Lira de Ribadavia · Rúa Redondela s/n, 32400
-        Ribadavia</p>
-    </div>
-  </footer>
+  {% include "sponsors.njk" %}
+  {% include "footer.njk" %}
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
