@@ -145,6 +145,28 @@
       background: #6f1724;
     }
 
+    .btn-outline-primary {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-outline-primary:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .btn-outline-secondary {
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-outline-secondary:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
     a {
       color: var(--primary);
     }
@@ -225,11 +247,9 @@
   <section id="banda">
     <div class="section-inner">
       <div class="section-card">
-        <h2>Quen somos e A Banda</h2>
-        <p>Fundada en 1840, A Lira de Ribadavia representa a esencia da música popular galega e é un referente na formación musical da comunidade ribadaviense.</p>
-        <p>A nosa agrupación está composta por músicos apaixonados pola música, dende os máis veteranos ata os novos integrantes que se forman na nosa escola. Participamos en concertos, festas populares, certames musicais e eventos culturais.</p>
-        <h3>A Banda</h3>
-        <p>Contamos cun repertorio variado que inclúe pezas clásicas, música popular galega e composicións modernas. Os nosos concertos destacan pola calidade interpretativa e o espírito comunitario que nos caracteriza.</p>
+        <h2>A Lira</h2>
+        <p>Fundada en 1840, A Lira de Ribadavia representa a esencia da música popular galega e é un referente na formación musical da comunidade ribadaviense. A nosa agrupación está composta por músicos apaixonados pola música, dende os máis veteranos ata os novos integrantes que se forman na nosa escola.</p>
+        <p>Participamos en concertos, festas populares, certames musicais e eventos culturais, cun repertorio variado que inclúe pezas clásicas, música popular galega e composicións modernas. Os nosos concertos destacan pola calidade interpretativa e o espírito comunitario que nos caracteriza.</p>
         <p>Ademais da actividade musical, A Lira promove a cultura e a educación musical a través da Escola de Música Mestre Veneroni, onde se forman xeracións de músicos.</p>
         <a class="btn btn-primary" href="historia.html">Ler historia completa</a>
       </div>
@@ -267,31 +287,31 @@
   <section id="socios">
     <div class="section-inner">
       <div class="section-card">
-        <h2>Asociarse</h2>
-        <p>Únete á nosa comunidade musical e axúdanos a manter viva a tradición das bandas de música en Ribadavia. A túa colaboración fai posible a formación de novos músicos e a organización de concertos e eventos culturais.</p>
-        <p><strong>Cotas anuais:</strong> dende 20€ individuais · dende 50€ establecementos.</p>
-        <p>Os establecementos colaboradores teñen o beneficio extra de que o seu logo aparecerá nos carteis das nosas actividades.</p>
-
-        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#formulario">Asociarse</button>
-
-        <div id="formulario" class="collapse mt-3">
-          <div class="ratio ratio-16x9">
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSdSzQqVbrzzFPimYB0MWAKAo0jb91WI0owaoDZkNtCUPO9N3Q/viewform?embedded=true"
-              width="640" height="4203" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+        <div class="row g-4">
+          <div class="col-md-7">
+            <h2>Asociarse</h2>
+            <p>Únete á nosa comunidade musical e axúdanos a manter viva a tradición das bandas de música en Ribadavia. A túa colaboración fai posible a formación de novos músicos e a organización de concertos e eventos culturais.</p>
+            <p><strong>Cotas anuais:</strong> dende 20€ individuais · dende 50€ establecementos.</p>
+            <p>Os establecementos colaboradores teñen o beneficio extra de que o seu logo aparecerá nos carteis das nosas actividades.</p>
+            <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#formulario">Asociarse agora</button>
+            <div id="formulario" class="collapse mt-3">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdSzQqVbrzzFPimYB0MWAKAo0jb91WI0owaoDZkNtCUPO9N3Q/viewform?embedded=true"
+                width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0"
+                style="border-radius:8px;">Cargando…</iframe>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <h2>Doazóns</h2>
+            <p>Se queres apoiar o noso proxecto musical, podes facer unha transferencia. Toda axuda é benvida para manter a actividade da banda e a escola.</p>
+            <div style="background:var(--bg-soft);border-radius:10px;padding:10px;border:1px solid var(--border);">
+              <p class="mb-1"><i class="fa-solid fa-building-columns me-2" style="color:var(--secondary)"></i><strong>IBAN</strong></p>
+              <p class="mb-3" style="font-family:monospace;font-size:0.95rem;">ES80 2080 5332 8130 4003 3885</p>
+              <p class="mb-1"><strong>Beneficiario:</strong></p>
+              <p class="mb-0" style="font-family:monospace;font-size:0.95rem;">ASOC. CULTURAL LIRADAVIA</p>
+            </div>
           </div>
         </div>
-    </div>
-  </section>
-
-  <section id="colaboracion" class="section-alt">
-    <div class="section-inner">
-      <div class="section-card">
-        <h2>Colaboracións e doazóns</h2>
-        <p>Se queres apoiar o noso proxecto musical, podes facer unha doazón económica. Toda axuda é benvida para manter a actividade da banda e a escola.</p>
-        <p><strong>IBAN:</strong> ES80 2080 5332 8130 4003 3885</p>
-        <p><strong>Beneficiario:</strong> ASOC.CULTURAL LIRADAVIA</p>
-        <p>Grazas polo teu apoio!</p>
       </div>
     </div>
   </section>
@@ -311,44 +331,61 @@
     <div class="section-inner">
       <div class="section-card">
         <h2>Contacto</h2>
-        <p>Estamos encantados de escoitar de ti! Contacta connosco para calquera consulta sobre a banda, a escola de música ou como asociarte.</p>
+        <p>Podes atopar o noso local na Rúa Redondela, s/n, en Ribadavia. Tamén estamos nas redes sociais e podes contactar connosco a través dos datos no pé desta páxina.</p>
 
-        <div class="row">
-          <div class="col-md-6">
-            <div class="contact-line">
-              <i class="fa-solid fa-envelope"></i>
-              <a href="mailto:banda@lira.gal">banda@lira.gal</a>
-            </div>
-
-            <div class="contact-line">
-              <i class="fa-solid fa-phone"></i>
-              <a href="tel:+34626658976">626 658 976</a>
-            </div>
-
-            <div class="contact-line">
-              <i class="fa-brands fa-whatsapp"></i>
-              <a href="https://wa.me/34626658976">WhatsApp</a>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="contact-line">
-              <i class="fa-solid fa-map-marker-alt"></i> Rúa Redondela, s/n<br>
-              32400 Ribadavia, Ourense (Galicia)
-            </div>
-          </div>
+        <div class="contact contact-line">
+          <i class="fa-solid fa-map-marker-alt"></i>
+          Rúa Redondela, s/n — 32400 Ribadavia, Ourense (Galicia)
+        </div>
+        <div class="mt-3 d-flex gap-3 flex-wrap">
+          <a href="https://www.instagram.com/bandalira/" class="btn btn-outline-secondary btn-sm">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
+          <a href="https://www.facebook.com/LiraRibadavia" class="btn btn-outline-secondary btn-sm">
+            <i class="fa-brands fa-facebook"></i> Facebook
+          </a>
+          <a href="https://www.youtube.com/@LiraRibadavia" class="btn btn-outline-secondary btn-sm">
+            <i class="fa-brands fa-youtube"></i> YouTube
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container text-center">
-      <p> Lira de Ribadavia</p>
-      <div class="contact-line">
-          <a href="https://www.instagram.com/bandalira/"><i class="fa-brands fa-instagram"></i> Instagram</a> |
-          <a href="https://www.facebook.com/LiraRibadavia"><i class="fa-brands fa-facebook"></i> Facebook</a> |
-          <a href="https://www.youtube.com/@LiraRibadavia"><i class="fa-brands fa-youtube"></i> YouTube</a>
+    <div class="container">
+      <div class="row text-center text-md-start gy-4">
+        <div class="col-md-4">
+          <p class="fw-bold mb-1" style="color:var(--secondary)">A Lira de Ribadavia</p>
+          <p class="mb-0" style="font-size:0.9rem;color:#aaa;">Banda de música e asociación cultural dende 1840.</p>
         </div>
+        <div class="col-md-4">
+          <p class="fw-bold mb-2" style="color:var(--secondary)">Contacto</p>
+          <div class="contact-line" style="font-size:0.9rem;">
+            <i class="fa-solid fa-envelope me-2"></i><a href="mailto:banda@lira.gal">banda@lira.gal</a>
+          </div>
+          <div class="contact-line" style="font-size:0.9rem;">
+            <i class="fa-solid fa-phone me-2"></i><a href="tel:+34626658976">626 658 976</a>
+          </div>
+          <div class="contact-line" style="font-size:0.9rem;">
+            <i class="fa-brands fa-whatsapp me-2"></i><a href="https://wa.me/34626658976">WhatsApp</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p class="fw-bold mb-2" style="color:var(--secondary)">Redes sociais</p>
+          <div class="contact-line" style="font-size:0.9rem;">
+            <a href="https://www.instagram.com/bandalira/"><i class="fa-brands fa-instagram me-2"></i>Instagram</a>
+          </div>
+          <div class="contact-line" style="font-size:0.9rem;">
+            <a href="https://www.facebook.com/LiraRibadavia"><i class="fa-brands fa-facebook me-2"></i>Facebook</a>
+          </div>
+          <div class="contact-line" style="font-size:0.9rem;">
+            <a href="https://www.youtube.com/@LiraRibadavia"><i class="fa-brands fa-youtube me-2"></i>YouTube</a>
+          </div>
+        </div>
+      </div>
+      <hr style="border-color:#333;margin-top:32px;">
+      <p class="text-center mb-0" style="font-size:0.8rem;color:#666;">© A Lira de Ribadavia · Rúa Redondela s/n, 32400 Ribadavia</p>
     </div>
   </footer>
 
