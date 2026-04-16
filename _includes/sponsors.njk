@@ -11,8 +11,7 @@
             <a
               class="sponsor-card"
               role="listitem"
-              href="{{ sponsor.url if sponsor.url else '#' }}"
-              {% if sponsor.url %}target="_blank" rel="noopener noreferrer"{% endif %}
+              {% if sponsor.url %}href="{{ sponsor.url }}" target="_blank" rel="noopener noreferrer"{% endif %}
               aria-label="{{ sponsor.name }}{% if sponsor.url %} (abre nunha nova xanela){% endif %}">
               {% if sponsor.logo %}
                 <img src="{{ sponsor.logo }}" alt="{{ sponsor.alt or sponsor.name }}" loading="lazy">
@@ -28,8 +27,7 @@
               role="none"
               aria-hidden="true"
               tabindex="-1"
-              href="{{ sponsor.url if sponsor.url else '#' }}"
-              {% if sponsor.url %}target="_blank" rel="noopener noreferrer"{% endif %}>
+              {% if sponsor.url %}href="{{ sponsor.url }}" target="_blank" rel="noopener noreferrer"{% endif %}>
               {% if sponsor.logo %}
                 <img src="{{ sponsor.logo }}" alt="{{ sponsor.alt or sponsor.name }}" loading="lazy">
               {% else %}
@@ -39,6 +37,34 @@
           {% endfor %}
         </div>
       </div>
+      <script>
+      (function() {
+        const tracks = document.querySelectorAll('.sponsors-track');
+        tracks.forEach(track => {
+          if (track.dataset.shuffled) return;
+          track.dataset.shuffled = 'true';
+          const cards = Array.from(track.querySelectorAll('.sponsor-card'));
+          const half = Math.floor(cards.length / 2);
+          if (half === 0) return;
+          const items = cards.slice(0, half);
+          
+          for (let i = items.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [items[i], items[j]] = [items[j], items[i]];
+          }
+
+          track.innerHTML = '';
+          items.forEach(item => track.appendChild(item));
+          items.forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute('role', 'none');
+            clone.setAttribute('aria-hidden', 'true');
+            clone.setAttribute('tabindex', '-1');
+            track.appendChild(clone);
+          });
+        });
+      })();
+      </script>
     {% else %}
       <p class="sponsors-empty">Espazo reservado para colaboradores.</p>
     {% endif %}
