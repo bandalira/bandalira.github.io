@@ -14,11 +14,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Historia - A Lira de Ribadavia</title>
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="shortcut icon" href="./favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="manifest" href="./site.webmanifest" />
 
   <!-- SEO BASICO -->
   <meta name="description"
@@ -119,7 +119,7 @@
     }
 
     section {
-      padding: 48px 0;
+      padding: 0 0 30px 0;
     }
 
     .section-inner {
@@ -136,14 +136,26 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
     }
 
+    .section-alt {
+      padding: 48px 0;
+    }
+
     h2 {
       border-left: 4px solid var(--primary);
       padding-left: 12px;
       margin-bottom: 20px;
     }
 
+    h3 {
+      border-left: 2px solid var(--primary);
+      padding-left: 10px;
+      margin-bottom: 14px;
+      margin-top: 24px;
+      opacity: 0.9;
+    }
+
     section[id] {
-      scroll-margin-top: 140px;
+      scroll-margin-top: 96px;
     }
 
     a {
@@ -154,13 +166,47 @@
       color: #6f1724;
     }
 
-    /* Índice */
+    a:focus-visible,
+    button:focus-visible,
+    .btn:focus-visible,
+    .nav-link:focus-visible,
+    .navbar-brand:focus-visible,
+    .navbar-toggler:focus-visible {
+      outline: 3px solid var(--secondary);
+      outline-offset: 3px;
+    }
+
+    .premios {
+      list-style: none;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+
+    .premios li {
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 10px;
+      line-height: 1.4;
+    }
+
+    .premios li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      opacity: 0.4;
+    }
+
+    .premios li:hover {
+      background-color: rgba(0, 0, 0, 0.025);
+    }
+
     .toc {
       background: var(--bg-soft);
-      padding: 20px;
-      border-radius: 10px;
-      margin: 30px 0;
-      border-left: 4px solid var(--primary);
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 3px solid var(--primary);
+      font-size: 0.95rem;
+      max-width: 320px;
     }
 
     .toc ul {
@@ -169,39 +215,135 @@
       margin: 0;
     }
 
+    .toc-heading {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .toc-toggle {
+      display: none;
+    }
+
     .toc li {
-      margin: 5px 0;
+      margin: 8px 0;
     }
 
     .toc a {
+      display: block;
+      padding: 4px 6px;
       color: var(--primary);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 400;
+      border-radius: 4px;
     }
 
     .toc a:hover {
-      text-decoration: underline;
+      background-color: rgba(0, 0, 0, 0.04);
       color: var(--secondary);
     }
 
-    /* Botón volver discreto */
-    .back-link {
-      display: inline-block;
-      margin: 20px 0;
-      font-size: 14px;
-      color: #666;
-      text-decoration: none;
+    .toc a.active {
+      background-color: rgba(0, 0, 0, 0.06);
+      font-weight: 600;
+      color: var(--secondary);
     }
 
-    .back-link:hover {
-      color: var(--primary);
-      text-decoration: underline;
-    }
-
+    /* Estilos para escritorio */
     @media (min-width: 992px) {
       .toc {
         position: sticky;
-        top: 110px;
+        top: 96px;
+      }
+    }
+
+    /* Estilos para móbil */
+    @media (max-width: 991px) {
+      .section-alt {
+        padding: 48px 0 30px;
+      }
+
+      section[id] {
+        scroll-margin-top: 84px;
+      }
+
+      .toc-wrapper {
+        display: none;
+        z-index: 1000;
+      }
+
+      .toc {
+        padding: 12px 14px;
+        max-width: none;
+        border-radius: 14px;
+        border-left-width: 0;
+        border-top: 3px solid var(--primary);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+      }
+
+      .toc-wrapper.visible {
+        display: block;
+        position: fixed;
+        left: 50%;
+        bottom: 16px;
+        transform: translateX(-50%);
+        width: calc(100% - 24px);
+        max-width: 720px;
+      }
+
+      .toc-heading {
+        display: none;
+      }
+
+      .toc-list {
+        display: none;
+        margin-top: 12px;
+        max-height: min(50vh, 22rem);
+        overflow-y: auto;
+      }
+
+      .toc-wrapper.open .toc-list {
+        display: block;
+      }
+
+      .toc-toggle {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        font-weight: 600;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+      }
+
+      .toc-toggle:active {
+        background: rgba(0, 0, 0, 0.08);
+      }
+
+      .toc-icon {
+        transition: transform 0.3s ease;
+        opacity: 0.7;
+      }
+
+      .toc-wrapper.open .toc-icon {
+        transform: rotate(180deg);
+      }
+
+      .toc-wrapper.open .toc {
+        padding-bottom: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .toc-icon {
+        transition: none;
       }
     }
 
@@ -224,19 +366,24 @@
     .contact-line {
       margin-bottom: 8px;
     }
+
+    .footer-muted {
+      color: #b7b7b7;
+    }
   </style>
 </head>
 
 <body>
 
-  <a class="skip-link" href="#inicio">Saltar ao contido</a>
+  <a class="skip-link" href="#main-content">Saltar ao contido principal</a>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <i class="fa-solid"></i> A Lira de Ribadavia
+        <i class="fa-solid" aria-hidden="true"></i> A Lira de Ribadavia
       </a>
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
+        aria-expanded="false" aria-label="Abrir ou pechar o menú de navegación">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -264,120 +411,121 @@
     <div class="section-inner">
       <div class="section-card">
         <div class="row">
-          <aside class="col-12 col-lg-3 mb-4 mb-lg-0">
+          <aside class="col-12 col-lg-3 mb-4 mb-lg-0 toc-wrapper">
             <div class="toc">
-              <strong>Índice</strong>
-              <ul>
-                <li><a href="#nacemento">Nacemento</a></li>
-                <li><a href="#emigracion">A emigración</a></li>
-                <li><a href="#guerracivil">A Guerra Civil</a></li>
-                <li><a href="#eramoderna">Era moderna</a></li>
-                <li><a href="#actualidade">Actualidade</a></li>
+              <strong class="toc-heading">Índice</strong>
+              <button class="toc-toggle" type="button" aria-expanded="false" aria-controls="historia-toc-list">
+                <span>Índice</span>
+                <span class="toc-icon" aria-hidden="true"><i class="fa-solid fa-chevron-up" aria-hidden="true"></i></span>
+              </button>
+              <ul class="toc-list" id="historia-toc-list">
+                <li><a href="#nacemento">Das orixes ao primeiro esplendor</a></li>
+                <li><a href="#emigracion">Crise e emigración</a></li>
+                <li><a href="#golpe">Guerra e decadencia</a></li>
+                <li><a href="#eramoderna">Reconstrución e transformación</a></li>
+                <li><a href="#actualidade">Renovación e etapa contemporánea</a></li>
                 <li><a href="#proxectos">Proxectos de futuro</a></li>
               </ul>
             </div>
           </aside>
 
-          <main class="col-12 col-lg-9">
+          <main class="col-12 col-lg-9" id="main-content">
             <section id="nacemento">
-              <h2>Nacemento</h2>
-              <p>De sempre gozou Ribadavia fama de cultivar as artes e de centro cultural. «Os seus moradores son
-                sumamente afeccionados á música, ao baile e a representar comedias e traxedias»; así os describía, nos
-                afastados 1827, Miñáns e Bedoya no seu Dicionario Xeográfico. Por iso é polo que resulta un pouco menos
-                insólito que xa no ano 1840 se instalase na vila todo un profesor de apelido Veneroni (seguramente de
-                nacionalidade italiana ou fillo ou descendente de italianos).
+              <h2>Das orixes ao primeiro esplendor</h2>
+              <h3>Unha tradición que vén de lonxe</h3>
 
-              <p>En 1850 constitúese na vila unha Sociedade Filharmónica co fin de educar á sociedade na arte
-                músical e, para ese efecto, o Concello, na sesión celebrada o 9 de xullo dese ano, acordou adquirir, por
-                propia conta, os instrumentos «aos que a clase pobre non puidese chegar», ao mesmo tempo que como local
-                para aprendizaxe e ensaios foille asignado provisionalmente o salón da escola de nenos situado en San
-                Domingos, nomeando mestre a Don Luís de Seoane coa retribución anual de dous mil douscentos reais e coa
-                obriga de ensinar de balde a doce mozos, quen tiñan que procurarse por si mesmos os instrumentos que
-                lles fosen necesarios.
-              </p>
+              <p>Ribadavia foi, dende antigo, unha vila marcada pola súa intensa vida cultural. Xa no ano 1827, Miñáns e
+                Bedoya describían os seus habitantes como especialmente afeccionados á musica, ao baile e á
+                representación teatral. Non era, pois, un territorio alleo á creación artística, senón un espazo fértil
+                onde a música atopou un lugar natural para medrar.</p>
+              <p>Neste contexto, arredor de 1840 establécese na vila un profesor de apelido Veneroni —probablemente de
+                orixe italiana ou descendente de italianos—, feito que evidencia o interese existente por unha formación
+                musical estruturada.</p>
+              <p>O verdadeiro impulso institucional chega en 1850 coa creación dunha Sociedade Filharmónica. O Concello
+                implicouse de maneira directa: na sesión do 9 de xullo dese ano acordouse adquirir instrumentos «aos que
+                a clase pobre non puidese chegar», garantindo así o acceso á aprendizaxe musical ás clases máis
+                humildes. Como espazo de formación habilitouse o salón da escola de nenos en San Domingos, e nomeouse
+                mestre a Luís de Seoane, cun salario anual de dous mil douscentos reais e coa obriga de formar
+                gratuitamente a doce alumnos.</p>
+              <p>Esta combinación de iniciativa popular e apoio institucional sería clave para o desenvolvemento
+                posterior da banda.</p>
 
-              <p>Todo iso propicia que en 1875 apareza unha agrupación musical (nese momento sen denominación
-                particular algunha) con Timoteo López Cartavio como director. A este sucédello don Beningno Pousa, e ao
-                Sr. Pousa don Antonio Freijido Branco, ata que no ano 1984 xurdiu unha escisión na banda, pasando un
-                grupo de músicos a organizarse nunha nova colectividade baixo a dirección de Francisco Sánchez.</p>
+              <h3>O nacemento da banda e as primeiras tensións</h3>
+              <p>En 1875 aparece xa unha agrupación musical estable, aínda sen nome oficial, dirixida por Timoteo López
+                Cartavio. A el sucedérono Benigno Pousa e, posteriormente, Antonio Freijido Branco.</p>
+              <p>Mais a historia inicial da banda estivo lonxe de ser lineal. No ano 1894 prodúcese unha escisión que
+                marcaría profundamente o seu futuro: un grupo de músicos sepárase e organiza unha nova colectividade
+                baixo a dirección de Francisco Sánchez.</p>
 
-              <p>É entón cando a nosa agrupación musical se constitúe en forma de sociedade adoptando o nome da
-                Lira, cun regulamento especial e a súa correspondente Xunta Directiva que tivo como primeiro presidente
-                a don Etelvino González Sieiro ao que anos despois substituíu neste cargo don Bartolomeu Ramón Domínguez
-                Rei.</p>
+              <p>É neste contexto cando a agrupación adopta o nome «A Lira» e se constitúe formalmente como sociedade,
+                con regulamento propio e Xunta Directiva. O seu primeiro presidente foi Etelvino González Sieiro, ao que
+                posteriormente substituíu Bartolomeu Ramón Domínguez Rei.</p>
 
-              <p>A consecuencia dunha nova escisión entre os seus compoñentes xurdida dentro do seo da banda pasa
-                esta a ser dirixida por don Fidel Sánchez, o cal, pouco despois de tomar o seu cargo morre asasinado, e
-                novamente queda La Lira sen dirección. Agudízase entón a escisión entre os seus compoñentes. O grupo
-                máis numeroso elixe por director a don Francisco Freijido, máis coñecido polo sobrenome de «O Sutil», e
-                outro grupo, formado polos disidentes de outrora, con algúns máis que se agregan, forman unha nova
-                colectividade musical que adopta o nome de «La Nueva Lira» baixo a batuta do xa nomeado don Francisco
-                Sánchez; e ao contraer este señor unha grave enfermidade, e ocorrer, algún tempo despois, o seu
-                falecemento, no ano 1908, ambas as colectividades agrúpanse de novo nunha soa baixo a batuta do Sr.
-                Freijido.</p>
+              <p>As divisións internas, porén, continuaron. Tras a morte violenta do director Fidel Sánchez pouco
+                despois de asumir o cargo, a banda volve quedar sen dirección, agravándose as tensións. A colectividade
+                divídese de novo: o grupo maioritario escolle como director a Francisco Freijido, coñecido como «O
+                Sutil», mentres que os disidentes forman «A Nova Lira» baixo a batuta de Francisco Sánchez.</p>
 
-              <p>Iníciase agora a primeira época de esplendor da banda, que culmina ao obter no Certame de Bandas
-                Populares celebrado na cidade de Vigo con ocasión das festas do Santo Cristo da Vitoria que preside o
-                gran mestre Bretón, o primeiro premio en rifada loita con outras agrupacións musicais, cuxo premio
-                consistiu nunha crecida cantidade económica e unha artística batuta de ébano e marfil.
-              </p>
+              <p>A situación prolongouse ata 1908, ano no que, tras o falecemento de Sánchez, ambas formacións se
+                reunifican baixo a dirección de Freijido. Esta reunificación marca o inicio dunha etapa especialmente
+                brillante.</p>
+
+
+              <h3>O primeiro gran esplendor</h3>
+              <p>Coa banda xa unificada, comeza unha época de grande éxito que culmina cun fito especialmente relevante:
+                o primeiro premio no Certame de Bandas Populares celebrado en Vigo durante as festas do Santo Cristo da
+                Vitoria, baixo a presidencia do mestre Bretón.</p>
+              <p>Este triunfo, acadado tras unha intensa competencia con outras agrupacións, supuxo non só un
+                recoñecemento artístico, senón tamén un importante premio económico e simbólico: unha batuta de ébano e
+                marfil.</p>
             </section>
 
             <section id="emigracion">
-              <h2>A emigración</h2>
-              <p>A banda pasou un tempo fantástico, pero en 1910 o Sr. Freijido emigra -el tamén- a Bos Aires,
-                caendo A Lira nunha crise máis. Acorda entón o Concello, naquel momento presidido por don Benito Puga
-                Fermoso, sacar a praza de director subvencionándoa coa cantidade anual de mil cincocentas pesetas; a
-                cambio diso, a banda tería que amenizar gratuitamente as festas do Portal e as de San Pedro Mártir, e
-                tocar así mesmo na procesión do Santo Enterro de Jesús na tarde do Venres Santo. Iniciase entón para A
-                Lira unha nova etapa, pois ao depender xa en parte do Concello e gozar da súa directa protección,
-                transfórmase nunha banda semi-municipal.</p>
+              <h2>Crise e emigración</h2>
+              <h3>A emigración</h3>
 
-              <p>Noméase director da Lira ao músico santiagués don Álvaro Soto que desempeña tal cargo por espazo
-                dun ano, sendo en 1911 substituído por don Juan Serrano, e este, á súa vez, por don Alfonso Campos, que
-                permanece inalterable neste cargo ata finais de 1921, no que se ausentou para dirixir á banda municipal
-                de Pontevedra.</p>
+              <p>O esplendor viuse truncado en 1910 coa emigración de Francisco Freijido a Buenos Aires. A súa marcha
+                provocou unha nova crise.</p>
+              <p>Para facer fronte á situación, o Concello —presidido por Benito Puga Fermoso— decidiu implicarse de
+                maneira máis directa. Convocou a praza de director cunha subvención anual de mil cincocentas pesetas, a
+                cambio de que a banda participase gratuitamente nas principais celebracións locais. Así, A Lira pasou a
+                funcionar como unha banda semi-municipal.</p>
+              <p>Sucédense entón varios directores: Álvaro Soto, Juan Serrano e, finalmente, Alfonso Campos, quen
+                permanecería no cargo ata 1921.</p>
 
-              <p>En tempos do señor Campos logra alcanzar A Lira un renome e un esplendor como ata entón nunca o
-                tivera. Contrátana para numerosas festas e, por espazo de dous anos, vai mesmo a amenizar as de María
-                Pita da Coruña, onde a súa brillante actuación é farto eloxiada pola prensa e aquela poboación. Don
-                Adolfo Campos, bo músico e home enérxico e de extraordinaria capacidade de traballo, prepara elementos
-                novos para substituír aos músicos antigos que xa non renden o suficiente, eleva o numero de prazas,
-                acrecenta o arquivo con numerosas partituras, algunhas veces adquiridas directamente do fondo común, e
-                outras agasallo de amigos e admiradores da agrupación que con tanto acerto e competencia dirixe. É tan
-                copioso e tan enorme o labor musical que leva a cabo o señor Campos nos seus dez anos de director da
-                Lira que pode afirmarse que todos os que lle substituíron nese cargo ata chegar á dirección de don Pedro
-                Orovio, viviron da súa fantástica obra e do seu inxente labor. Don Adolfo Campos elevou o prestixio da
-                banda a enorme altura, creou moitos e bos músicos entre a mocidade ribadaviense de
-                entón, disciplinounos e educounos artisticamente e grazas a el, a boa fama e o prestixio que a
-                colectividade xa tiña viuse incrementada e estendeuse por toda a rexión galega e aínda fóra dela.</p>
+              <h3>A etapa de Alfonso Campos: un legado decisivo</h3>
+              <p>A dirección de Alfonso Campos representa un dos momentos máis importantes da historia da banda.</p>
+              <p>Durante os seus dez anos á fronte, A Lira alcanzou un nivel artístico excepcional. Foi contratada para
+                numerosas festas, incluídas as da Coruña, onde a súa actuación nas festas de María Pita foi amplamente
+                eloxiada pola prensa.</p>
+              <p>Campos non só dirixiu, senón que transformou a banda: ampliou o número de músicos, renovou o
+                repertorio, adquiriu partituras —ás veces co apoio de admiradores— e, sobre todo, formou unha nova
+                xeración de intérpretes.</p>
+              <p>O seu labor foi tan profundo que, durante anos, os seus sucesores viviron da base musical que el
+                construíra.</p>
 
-              <p>A partir do baleiro deixado polo Sr. Campos debúllase un longo rosario de efémeros directores,
-                que somen á banda nunha crecente decadencia. Un núcleo de doce músicos provoca unha escisión máis, pero
-                en xusto castigo ao seu perverso e desafinado quefacer, o enxeño popular -tan presto e agudo nas terras
-                do viño bautizounos co apelativo de «Os Rabiosos». O sucesor directo do gran Adolfo Campos foi don
-                Camilo Pérez, a quen sucede don Liño Pampín. Eliminado da dirección o señor Pampín, noméase para este
-                posto no ano 1924 a don Juan Omar Queral, aumentándose polo concello en mil pesetas máis a subvención no
-                soldo anual. Don Juan Omar, sen grandes pretensións musicais, pero home normal e honorable dirixiu A
-                Lira por espazo de tres anos logrando elevar de novo a súa moral e o seu prestixio que, a partir da
-                marcha de Adolfo Campos, decrecera considerablemente. Sobre comezos de 1927 sucédelle na dirección, por
-                espazo duns meses, o Sr. Escobar e a este don Manuel Fernández Amor por un período semellante de tempo.
-              </p>
+              <h3>Inestabilidade, episodios singulares e novos intentos de recuperación</h3>
+              <p>Tras a súa marcha, a banda entra nun período de inestabilidade, debúllandose un longo rosario de
+                efémeros directores: Camilo Pérez, Liño Pampín, Juan Omar Queral —quen logrou recuperar parcialmente o
+                prestixio—, Escobar e Manuel Fernández Amor.</p>
+              <p>Neste contexto tamén se produce unha nova escisión protagonizada por un grupo de doce músicos,
+                coñecidos popularmente como «Os Rabiosos».</p>
+              <p>Un dos episodios máis curiosos chega en 1928 coa chegada de José Veiga, quen afirmaba ser fillo do
+                autor da famosa Alborada. Inicialmente recibido con entusiasmo, pronto se revelou a falsidade da súa
+                identidade e a súa incapacidade musical, sendo destituído de inmediato tras declaracións como o famoso
+                «tampouco hai por que afinar tanto».</p>
 
-              <p>Cara a finais de 1928 encárgase da dirección un pintoresco José Veiga, que se dicía fillo do
-                celebrado autor da «Alborada». É acollido polos elementos da banda e polo pobo de Ribadavia en xeral con
-                notorias mostras de entusiasmo, de simpatía e de expectación; pero descuberta pouco despois tal
-                andrómena e visto, ademais, que non reunía ningunha das condicións para ese cargo e que ata acabou
-                respondendo ós requirimentos dos seus músicos cun «tampouco hai por que afinar tanto», foi destituído
-                fulminantemente.</p>
-
-              <p>Fíxose cargo da Lira don Luís Brage, compositor da soada rapsodia «Follas Novas». Con el comeza
-                unha nova época de ouro para a música, e non só a banda, en Ribadavia: a xente apíñase a presenciar os
-                ensaios, xorden rondallas, comparsas, representacións de zarzuelas (a verbena da Pomba, Bohemios, etc.)
-                e cada quisque acaba asubiando o Andante da Quinta de Beethoven como quen lava. A banda chegou a ter tal
-                poder de arrastre, que a afección alá a seguía a onde fose; como lle explicaba un honesto Tenente de
-                alcalde ao seu Gobernador, atónito por un tremendo recibimento: "Ai, non, señor, non lle veñen por
-                vostede, véñenlle ó rabo da música".</p>
+              <h3>Luís Brage e o renacemento cultural</h3>
+              <p>A chegada de Luís Brage marcou un novo renacer. Compositor recoñecido, como a famosa «Follas Novas»,
+                revitalizou completamente a vida musical de Ribadavia.</p>
+              <p>Os ensaios convertéronse en auténticos espectáculos, xurdiron novas formacións —rondallas, comparsas— e
+                popularizáronse as representacións de zarzuela. A música pasou a formar parte da vida cotiá da vila, ata
+                o punto de que, segundo unha anécdota da época, un Gobernador recibira tal recibimento que un honesto
+                tenente de alcalde lle tivera que confesar: "«Ai, non, señor, non lle veñen por vostede, véñenlle ó rabo
+                da música»".</p>
+              <p>Porén, o seu carácter e a súa implicación política acabaron xerando rexeitamento: nun período axitado e
+                tormentoso para a vida da vila, as súas ideas fóronlle restando adhesións e simpatías ata tal punto que
+                os propios músicos deixaron de recoñecelo como director, traéndo pola súa conta a Faustino Temes.</p>
 
               <p>O Sr. Brage tiña excelentes condicións de músico; era así mesmo un magnífico compositor, e nos
                 seus primeiros tempos fixo revivir na banda aqueles xa algo afastados de don Adolfo Campos, pero o seu
@@ -391,149 +539,203 @@
               </p>
             </section>
 
-            <section id="guerracivil">
-              <h2>A Guerra Civil</h2>
-              <p>Estala a guerra civil e a banda queda sen director. Entre esta fatal circunstancia, a carencia de
-                ensaios e cun gran número de músicos incorporado ós distintos bandos belixerantes, a banda
-                desmoralizouse e perdeu todo o seu prestixio musical, quedando case convertida nunha charanga de aldea.
+            <section id="golpe">
+              <h2>Guerra e decadencia</h2>
+              <h3>O Golpe de Estado, a sublevación e a Guerra Civil</h3>
+              <p>O Golpe de Estado de 1936, coa sublevación de parte do exército, desencadeou a Guerra Civil, unha etapa
+                que supuxo un golpe devastador. A Lira quedou sen dirección, sen ensaios e con moitos músicos
+                mobilizados, a banda perdeu cohesión e nivel, quedando reducida practicamente a unha formación menor.
               </p>
+              <p>Os intentos de recuperación de Juan Escudeiro ou de Rafael Díaz foron insuficientes. En 1942,
+                o Concello convoca un novo concurso e selecciona a Moisés García Espinosa, que logra que a banda
+                participe nas festas do Portal daquel ano xunto coa banda da Garda Civil de Madrid.</p>
 
-              <p>Deste desastroso estado non lograron levantala os directores que sucederon ao Sr. Brage, ou sexa:
-                Don Juan Escudeiro, nos anos de 1937 e 1938, e don Rafael Díaz nos de 1940 e 1941.</p>
-
-              <p>Por fin, en 1942, o concello, aumentando nunha cifra respectable o soldo de director, convoca un
-                novo concurso, e do mesmo resulta nomeado para este cargo o músico maior, Comandante militar retirado,
-                don Moisés García Espinosa. Con don Moisés García empeza de novo a recuperación da banda que xa nas
-                festas do Portal daquel ano, fai un brillante papel alternando nos seus concertos coa magnífica banda da
-                Garda Civil de Madrid. Pero pouco despois de levar un ano ostentando a batuta con gran satisfacción do
-                público ribadaviense, o Sr. García Espinosa enferma gravemente e uns meses máis tarde, o 4 de outubro de
-                1943, falece, volvendo quedar a banda orfa de dirección cando xa de novo comezaba a brillar en toda a
-                rexión galega reverdecendo pasados loureiros.</p>
-
-              <p>Durante un período de sete meses corre A Lira a cargo do novo subdirector don Manuel Estévez
-                (chamado de sobrenome «O frauta» polo seu devandito instrumento), ata que por fin, tras múltiples e
-                laboriosas xestións, en abril de 1944 pasa a levar a dirección o mestre musical militar retirado don
-                que ata entón dirixira como subdirector a banda do terzo de Ceuta e tamén como subdirector da municipal
-                de Santander.</p>
-
-              <p>Baixo a súa batuta a banda chegou ao cénit da súa gloria e prestixio, e é tan enorme a súa
-                popularidade que non se concibe unha festa de categoría en toda Galicia que non sexa amenizada pola
-                colectividade musical. O Sr. Orovio, coa súa maxistral batuta, consegue que A Lira sexa, sen discusión e
-                durante varios anos, a mellor agrupación galega. O seu repertorio de obras é colosal e variadísimo,
-                superando as cento trinta partituras, e os seus éxitos cóntanse por centenares. En 1949, e en rifada
-                competencia con outras cinco magníficas bandas, consegue o primeiro premio nun concurso celebrado na
-                cidade de Ourense con motivo das festas patronais do Corpus Christi. A popularidade de Pedro Orovio é
-                tan grande que o seu nome é coñecido e respectado hoxe día non só en todo o solar galego senón tamén en
-                varias provincias de Portugal, nun bo número de cidades leonesas e en varias localidades asturianas. Foi
-                unha especie de «neno mimado» dos mordomos e comisións, dos párrocos e das familias máis destacadas dos
-                pobos que percorreu, os cales se desvivían en obsequialo e sentalo á súa mesa.
-              </p>
-
-              <p>Desgraciadamente, este apoxeo comeza a declinar ao cabo duns quince anos de éxitos
-                ininterrompidos, pois a mocidade deixa de acudir ás academias onde don Pedro se afana en conseguir novos
-                educandos que substitúan aos músicos que se van licenciando, e a emigración, primeiramente a Venezuela e
-                Brasil, e máis tarde a Alemaña, Suíza, Holanda e Francia, van restando elementos á banda, que se ve
-                reducida a vintecinco ou vinteseis números. Con todo, don Pedro Orovio consegue deleitar con selectas
-                pezas; pero os anos pasan, e cando se cumpren os vintedous da súa brillante acción, cesa na dirección de
-                tan coñecida banda con gran sentimento dosseus numerosos amigos e admiradores cuxo afecto fora
-                conquistar polo seu cumprir persoal artístico.
-              </p>
+              <h3>A recuperación e o cénit con Pedro Orovio</h3>
+              <p>Falecido García Espinosa e tras un breve paso do subdirector Manuel Estévez, a chegada de Pedro Orovio
+                en 1944 marca o inicio dunha das etapas máis brillantes da banda.</p>
+              <p>Durante máis de dúas décadas, A Lira converteuse na mellor banda do país, cun repertorio superior
+                ás 130 obras e innumerables actuacións.</p>
+              <p>En 1949 acadou o primeiro premio no certame de Ourense. A súa fama estendeuse por Galicia, Portugal,
+                León e Asturias, con mordomos, comisións, párrocos e familias dos pobos que percorrían desvidínse por
+                obsequialo e sentalo á súa mesa.</p>
+              <p>Con todo, a constante emigración e a falta de novos músicos provocaron un lento declive que culminou
+                coa súa retirada tras 22 anos de dirección.</p>
             </section>
 
             <section id="eramoderna">
-              <h2>Era moderna</h2>
-              <p>Tras a etapa do Sr. Orovio, a masiva emigración e o éxodo dos músicos novos cara aos conxuntos
-                pop van facendo declinar a banda que, aínda conservando o seu estilo e afinación característicos,
-                arrastra unha vida lánguida.
+              <h2>Reconstrución e transformación</h2>
 
-              <p>Ao Sr. Orovio Ruíz sucédelle don José Franco por período dun ano, no cal a banda baixa de maneira
-                enorme na categoría á que chegara co seu anterior director.</p>
+              <h3>O final dunha era e o difícil camiño da continuidade</h3>
+              <p>A retirada de Pedro Orovio non supuxo simplemente un cambio de director: marcou o final dunha época
+                irrepetible. Tras máis de dúas décadas de éxitos continuados, A Lira quedaba orfa dunha figura que non
+                só dirixira a banda, senón que a definira.</p>
+              <p>O seu sucesor foi José Franco, quen asumiu a dirección nun momento especialmente delicado. A sombra de
+                Orovio era demasiado alongada, e o nivel acadado durante anos resultaba difícil de soster. Nun curto
+                período, a banda experimentou unha notable caída na súa calidade artística, evidenciando ata que punto
+                dependía da estrutura e disciplina herdadas do seu anterior director.</p>
+              <p>A situación cambiou coa chegada de Manuel Vázquez Gregorio, natural de Filgueira. Músico de sólida
+                formación e gran capacidade, representaba, en moitos aspectos, unha continuidade do modelo de Orovio.
+                Coa súa batuta, A Lira recuperou parte do seu pulso e da súa identidade sonora, devolvéndolle á
+                agrupación certa estabilidade.</p>
+              <p>Porén, os tempos estaban a cambiar. Vázquez Gregorio tivo que enfrontarse a problemas que xa non eran
+                exclusivamente musicais: a progresiva falta de alumnos nas academias, a perda de interese da mocidade
+                pola música de banda e, sobre todo, o continuado impacto da emigración, que baleiraba a vila de mozos
+                con talento. A isto sumábase a irrupción das orquestras modernas, que ofrecían unha alternativa máis
+                atractiva para moitos músicos novos.</p>
+              <p>A pesar destas dificultades, o seu longo período á fronte da banda —ata o ano 2004, con excepción dun
+                breve intervalo entre 1984 e 1985 onde asumiu a dirección Alfonso Salvatierra Mesa— permitiu manter viva
+                a agrupación nun contexto adverso.</p>
+              <p>Foron tamén anos de transformación interna: a banda abriu as súas portas ás primeiras mulleres, renovou
+                progresivamente a súa base humana e procurou adaptarse ás novas realidades sociais. Con todo, o
+                nivel artístico, aínda digno, quedaba inevitablemente por debaixo do acadado nas épocas douradas.</p>
+              <p>Co paso do tempo, A Lira parecía vivir máis do seu prestixio histórico que dunha verdadeira proxección
+                de futuro. Esta inercia prolongouse ata que, en 2004, Manuel Vázquez Gregorio decidiu abandonar
+                definitivamente a dirección.</p>
 
-              <p>Afortunadamente ao cabo de pouco máis de 12 meses empuña a batuta Don Manuel Vázquez Gregorio,
-                natural de Filgueira, dunha gran cultura musical e rodeado así mesmo dunhas condicións artísticas e
-                persoais similares ás de don Pedro Orovio Ruíz. Co Sr. Vázquez Gregorio, A Lira volve polos seus antigo
-                foros, pero o actual director tropeza cos mesmos inconvenientes cos que tivera que loitar o Sr. Orovio,
-                ou sexa, coa falta de educandos, pola desgana da mocidade cara á arte musical e pola emigración que
-                arrebata a países estranxeiros á maioría dos raparigos e tamén porque os músicos pasan a engrosar
-                ruidosas e trepidantes orquestras tan de moda desde entón.
-              </p>
+              <h3>Un tempo de incerteza</h3>
+              <p>A súa marcha abriu un período de transición marcado pola inestabilidade. Nicanor Domínguez Cid,
+                profesor do Conservatorio de Ourense, asumiu o cargo, mais a súa etapa foi breve. Tras el, chegou José
+                Ángel Presa Carrera, cuxos inicios estiveron cheos de ilusión e expectativas.</p>
+              <p>Non obstante, co paso do tempo, a relación cos músicos foise deteriorando, xerando un clima de tensión
+                que culminou coa súa saída en agosto de 2007, nun momento especialmente delicado, con actuacións xa
+                comprometidas.</p>
+              <p>Ante esta situación, foi o propio músico Javier Oliveira Blanco quen asumiu provisionalmente a
+                dirección para poder cumprir cos compromisos pendentes. A súa intervención permitiu salvar a tempada,
+                pero evidenciou tamén a fraxilidade estrutural da banda.</p>
+              <p>Ese mesmo ano, a situación alcanzou un punto crítico: A Lira non participou nas festas grandes de
+                Ribadavia, un feito simbólico que puxo de manifesto a gravidade da crise.</p>
 
-              <p>O Sr. Vázquez Gregorio estivo á fronte do colectivo ata o ano 2004, coa excepción entre os anos
-                1984 e 1985, no que diversas desavenencias laborais fixeron que dimitise do seu posto, tempo no que
-                colleu o testigo Alfonso Salvatierra Mesa.</p>
-
-              <p>Durante todos eses anos a banda acadou un nivel que pola época se podería considerar alto, pero
-                que quedaba ensombrecido cando se comparaba co listón que deixara o Sr. Orovio. Foron anos de forzosa
-                renovación, coa incorporación das primeiras mulleres na colectividade, así como unha progresiva baixada
-                na idade media dos compoñentes.</p>
-
-              <p>Pero nin as novas incorporacións nin a axuda que a asociación «Amigos de La Lira» prestaba
-                conseguiron que a banda volvese acadar un nivel similar ó pasado. Si, conservaba certas características
-                no seu timbre e na súa interpretación, pero xa nada era como entón. A banda seguía a vivir de rémoras do
-                pasado, e seguiu así ata que no ano 2004 o Sr. Vázquez Gregorio decide abandoar a colectividade.</p>
-
-              <p>Colle o testigo Nicanor Domínguez Cid, profesor do conservatorio de Ourense na especialidade de
-                clarinete. Este aguanta un ano no posto, cando é reemplazado por José Ángel Presa Carrera. Os comezos
-                foron ilusionantes, pero co paso do tempo a relación cos músicos foise enrarecendo ata que no 2007
-                decide abandoar a banda en agosto, nun momento no que había festas contratadas. Nese momento, un dos
-                músicos, Javier Oliveira Blanco, ponse ó cargo da agrupación durante as festas restantes.</p>
-
-              <p>Con todo, non deixou de ser un parche para unha ferida mal curada: a mocidade xa non se interesa
-                pola música de banda e os máis veteranos van deixando progresivamente a música. Un proceso lento pero
-                contínuo que fai que a banda, nese mesmo 2007, non acuda ás festas grandes de Ribadavia.</p>
-
-              <p>Foi entón cando un profesor do conservatorio, Antonio López Conde, colle a dirección da
-                colectividade. Por primeira vez na historia, un membro do Conservatorio Municipal de Ribadavia participa
-                na banda. Algo que pode parecer tan obvio, pero que nunca se dera nos, nese momento, case 20 anos de
-                historia do conservatorio. O período do Sr. López Conde foi curto, dun só ano, no que a banda incorporou
-                a mozos e mozas do conservatorio e da escola municipais. Pero musicalmente a banda languidecía e foi
-                entón cando se lle solicitou a Manuel Vázquez Gregorio que volvese á agrupación.</p>
-
-              <p>A súa nova etapa durou tan só un ano, pois a pesar da reincorporación de antigos músicos e da
-                madurez musical das novas incorporacións, a banda precisaba algo distinto, un efecto que fixese que se
-                rompese a dinámica que ata entón a estaba a sumir nun pozo sen saída.
-              </p>
+              <h3>A reacción: cara a unha nova etapa</h3>
+              <p>Foi precisamente esta situación límite a que provocou unha reacción. A chegada de Antonio López Conde,
+                profesor do Conservatorio Municipal de Ribadavia, supuxo un intento de reconectar a banda co ámbito
+                formativo local. Por primeira vez, establecíase unha ponte real entre o conservatorio e a agrupación,
+                algo sorprendentemente inexistente ata entón.</p>
+              <p>A súa etapa, aínda que breve, permitiu incorporar novos músicos procedentes da escola e do
+                conservatorio, pero o cambio non foi suficiente para inverter a tendencia.</p>
+              <p>Nun novo intento por recuperar o pulso da banda, solicitouse o regreso de Manuel Vázquez Gregorio. A
+                súa volta trouxo consigo a reincorporación de antigos músicos e a consolidación das novas xeracións,
+                pero tampouco logrou romper a dinámica descendente.</p>
+              <p>Facía falta algo máis que experiencia: era necesario un cambio profundo de enfoque.</p>
             </section>
 
             <section id="actualidade">
-              <h2>Actualidade</h2>
-              <p>Para cambiar a dinámica da colectividade, no ano 2009 un grupo de músicos procura dárlle novos
-                folgos á banda. Non resulta algo sinxelo, pois a cantidade de boas bandas que hai en toda a xeografía
-                galega fai que a competencia sexa cada vez maior. A primeira medida pasa por contar cun novo director, o
-                lucense Juan Carlos López Vázquez, un home cunha gran tradición na música bandística, pois con 16 anos
-                xa estaba a dirixir unha banda de música.</p>
+              <h2>Renovación e etapa contemporánea</h2>
 
-              <p>A banda tamén procura ter autonomía legal, polo que se forma a «Asociación Cultural Liradavia»,
-                coa misión de levar a cabo, de forma directa, as actividades que anteriormente levaba a «Asociación
-                Amigos de La Lira».</p>
+              <h3>A renovación: reconstruír desde dentro</h3>
+              <p>Ese cambio comezou a tomar forma en 2009, cando un grupo de músicos decidiu apostar por unha
+                transformación real da banda. Non era unha tarefa sinxela: o panorama musical galego estaba cheo de
+                agrupacións de gran nivel e a competencia era cada vez maior.</p>
+              <p>A elección de Juan Carlos López Vázquez como director marcou o inicio desta nova etapa. Cunha ampla
+                experiencia —xa dirixía bandas con apenas 16 anos—, aportou unha visión renovadora e ambiciosa.</p>
+              <p>Baixo a súa dirección, A Lira experimentou un salto cualitativo notable. Recuperáronse instrumentos
+                desaparecidos, como o óboe ou as trompas, e incorporáronse outros inéditos na formación, como o fagot ou
+                o violoncello. A sección de percusión modernizouse profundamente, pasando dunha dotación básica a un
+                conxunto completo con vibráfono, xilófono, campás tubulares e outros instrumentos. Paralelamente,
+                constituíuse a Asociación Cultural Liradavia, que permitiu á agrupación gañar autonomía e capacidade de
+                xestión.</p>
+              <p>Pero o verdadeiro cambio non foi só material e administrativo, senón tamén conceptual. Por primeira vez
+                na súa historia recente, a banda decidiu medirse no ámbito competitivo. En agosto de 2011, A Lira
+                participou no XII Certame Internacional de Bandas de Música «Villa de Aranda». A experiencia, máis alá
+                do resultado —un meritorio cuarto posto nunha sección única—, marcou un antes e un despois: a banda
+                volvía situarse no mapa musical a nivel estatal.</p>
+              <p>Ese mesmo ano, en novembro, chegaría a confirmación do camiño emprendido: no V Certame Galego de
+                Bandas, desenvolvido en Santiago de Compostela, A Lira acadaba o primeiro premio na sección terceira.
+                Non
+                era só un triunfo, senón a constatación de que o proceso de renovación estaba a dar froitos reais.</p>
 
-              <p>Baixo a batuta do Sr. López Vázquez, a banda deu un salto cualitativo considerable, coa
-                incorporación de instrumentos que levaban anos sen estar na banda como foron o óboe ou as trompas, e
-                contando por primeira vez cun fagot ou cun violoncello. Así mesmo, para poder interpretar obras máis
-                modernas, os compoñentes decidiron invertir todos os cartos na compra de instrumental de percusión
-                variado, pois ata ese momento a banda só contaba con dous timbais, caixa, bombo e pratos de choque. A
-                día de hoxe cóntase con catro timbais, vibráfono, xilófono, lira de concerto e campanófono, xunto con
-                diversa percusión pequena, sumando unha inversión, xunto con outros instrumentos, de máis de 20.000€.
+              <h3>Da consolidación á identidade propia</h3>
+              <p>Tras esta etapa fundacional, en 2012 asume a dirección Francisco Pérez Rodríguez, quen dá continuidade
+                ao traballo iniciado. Baixo a súa batuta, a banda mantén a súa presenza en certames e continúa o proceso
+                de crecemento, aínda que nunha fase máis centrada na consolidación interna.</p>
+              <p>En 2015 incorpórase Roberto Baltar Gardón, nun momento no que a banda xa conta cunha base máis
+                estruturada. Porén, a súa etapa resulta breve: tras once meses á fronte da agrupación, abandona o cargo
+                en agosto de 2016.</p>
+              <p>É nese momento cando chega o verdadeiro punto de inflexión: Javier Oliveira Blanco —aquel músico que
+                anos
+                antes asumira a dirección de forma provisional— toma a dirección nun contexto esixente. A súa estrea
+                prodúcese nas festas de setembro de Ribadavia, nun escenario especialmente simbólico.
               </p>
+              <p>Pouco despois, chega unha das primeiras grandes probas: o X Certame Galego de Bandas. Baixo a súa
+                dirección, A Lira acada o primeiro premio na sección terceira, confirmando non só a validez do
+                proxecto, senón tamén a capacidade do novo director para liderar esta etapa.</p>
 
-              <p>Grazas ó esforzo de todos os membros da banda e dos socios da asociación, a banda volveu
-                participar en certames musicais. O seu primeiro intento foi en 2011 e a nivel nacional, en Aranda de
-                Duero, no que a banda acadou o cuarto posto. En novembro dese mesmo ano, no V Certame Galego de Bandas,
-                A Lira participou en sección terceira, acadando o primeiro premio.</p>
+              <h3>Un presente construído sobre o esforzo colectivo… e posto a proba</h3>
+              <p>A partir de 2016, baixo a dirección de Javier Oliveira Blanco, a banda entrou nun período de
+                estabilidade e crecemento sostido. Os resultados en certames avalaron o traballo realizado, con premios
+                destacados no ámbito galego e mesmo a nivel nacional, como o primeiro posto no Certamen Internacional de
+                Bandas de Música «Ciutat de València» en 2018.</p>
+              <p>Durante estes anos, A Lira consolidou unha identidade renovada: unha sonoridade máis actual, unha base
+                formativa conectada coa súa contorna e unha estrutura organizativa máis sólida. A banda non só
+                recuperaba prestixio, senón que volvía sentirse protagonista dentro do panorama bandístico.</p>
+              <p>Esta dinámica viuse interrompida de maneira abrupta a partir de 2020. A pandemia da COVID-19 supuxo un
+                punto de inflexión. A paralización da actividade cultural, a suspensión de festas e certames e as
+                dificultades para manter a actividade interna afectaron profundamente á agrupación. Como tantas outras
+                entidades musicais, A Lira viuse obrigada a deter o seu ritmo habitual, rompendo unha inercia que
+                levaba anos consolidándose.</p>
+              <p>Pero máis alá da interrupción externa, o período posterior deixou unha situación complexa. A falta de
+                continuidade, certas decisións organizativas e o propio desgaste acumulado derivaron nunha etapa que
+                podería definirse como de <i>tensa calma</i>: a actividade retomouse de maneira irregular, sen a
+                cohesión nin o impulso dos anos anteriores. A nivel humano, artístico e mesmo na presenza nas festas, a
+                banda atravesou un momento delicado, afastado do dinamismo que caracterizara a etapa previa.</p>
 
-              <p>Os últimos logros son o primeiro premio dentro da sección terceira na X edición do Certame Galego
-                de Bandas así como o terceiro premio e o premio á mellor interpretación de obra libre con temática
-                galega na VI edición. No ano 2018 A Lira gaña os dous certames ós que se presenta, sendos estes de
-                grande relevancia como son o 132 Certame Internacional de Bandas de Música de Valencia e o XII Certame
-                Galego. Xa no 2019 queda no segundo posto, participando por primeira vez dentro da segunda sección do
-                Certame Galego. </p>
+              <h3>Un novo horizonte: a recuperación</h3>
+              <p>A partir de 2024 comeza a percibirse un cambio de tendencia. Pouco a pouco, a banda inicia un proceso
+                de recuperación que se manifesta tanto na reorganización interna como na reactivación da súa actividade
+                musical. Volve aparecer a vontade de construír, de fortalecer o grupo e de mirar cara ao futuro cunha
+                perspectiva renovada.</p>
+              <p>Este proceso ten un obxectivo claro e simbólico: para o ano 2026, A Lira prepárase para participar de
+                novo no Certame Galego de Bandas, recuperando así unha das liñas que marcara o seu renacemento na década
+                anterior.</p>
+
+              <h3>Premios e participacións en certames</h3>
+              <p>Ao longo da súa historia recente, a banda participou en numerosos certames, obtendo destacados
+                resultados:</p>
+              <ul class="premios">
+                <li><strong>Agosto 2011</strong>: XII Certamen Internacional Villa de Aranda. 4.º posto, sección
+                  única. Director: Juan Carlos López Vázquez.</li>
+                <li><strong>Novembro 2011</strong>: V Certame Galego. 1.º premio, sección terceira. Director: Juan
+                  Carlos López Vázquez.</li>
+                <li><strong>Novembro 2012</strong>: VI Certame Galego. 3.º premio, sección terceira. Director: Juan
+                  Carlos López Vázquez.</li>
+                <li><strong>Novembro 2012</strong>: VI Certame Galego. Premio á mellor interpretación de obra libre
+                  con temática galega. Director: Juan Carlos López Vázquez.</li>
+                <li><strong>Agosto 2013</strong>: XIV Certame de Aranda. Participación, sección única. Director:
+                  Francisco Pérez Rodríguez.</li>
+                <li><strong>Novembro 2014</strong>: VIII Certame Galego. 4.º posto, sección terceira. Director:
+                  Francisco Pérez Rodríguez.</li>
+                <li><strong>Xullo 2016</strong>: Certamen Internacional Armónico (Toro, Zamora). Participación,
+                  segunda sección. Director: Roberto Baltar Gardón.</li>
+                <li><strong>Novembro 2016</strong>: X Certame Galego. 1.º premio, sección terceira. Director:
+                  Xabier Oliveira.</li>
+                <li><strong>Novembro 2017</strong>: XI Certame Galego. 2.º premio, sección terceira. Director:
+                  Xabier Oliveira.</li>
+                <li><strong>Xullo 2018</strong>: Certame Internacional Ciutat de València. 1.º premio, sección
+                  terceira. Director: Xabier Oliveira.</li>
+                <li><strong>Novembro 2018</strong>: XII Certame Galego. 1.º premio, sección terceira. Director:
+                  Xabier Oliveira.</li>
+                <li><strong>Novembro 2019</strong>: XIII Certame Galego. 2.º premio, sección segunda. Director:
+                  Xabier Oliveira.</li>
+              </ul>
+
             </section>
 
             <section id="proxectos">
               <h2>Proxectos de futuro</h2>
-              <p>Os integrantes da Lira seguen intentando protexer e fomentar a gran tradición musical da súa
-                vila, impulsando a Escola de Música Mestre Veneroni e converténdo a Ribadavia nun dos lugares máis
-                prestixiosos e recoñecidos na cultura das bandas de música populares de toda Galicia.</p>
+              <p>A continuidade da Lira depende, como ao longo da súa historia, da capacidade para garantir o relevo
+                xeracional e a estabilidade da súa estrutura organizativa.</p>
+
+              <p>Neste sentido, a Escola de Música Mestre Veneroni constitúe un elemento fundamental. A súa función
+                non se limita á formación técnica do alumnado, senón que actúa como principal vía de incorporación de
+                novos músicos á banda, asegurando a súa continuidade no tempo.</p>
+
+              <p>Paralelamente, resulta imprescindible o fortalecemento da base social da entidade. O incremento do
+                número de socios e socias permite dispoñer dos recursos económicos necesarios para o mantemento da
+                escola, a adquisición e conservación do instrumental e o desenvolvemento dunha actividade musical
+                regular e de calidade.</p>
+
+              <p>A implicación da contorna social da banda, tanto a través da participación directa como do apoio
+                asociativo, segue a ser, como historicamente se ten demostrado, un factor determinante para a súa
+                estabilidade e proxección futura.</p>
             </section>
           </main>
         </div>
@@ -546,43 +748,204 @@
       <div class="row text-center text-md-start gy-4">
         <div class="col-md-4">
           <p class="fw-bold mb-1" style="color:var(--secondary)">A Lira de Ribadavia</p>
-          <p class="mb-0" style="font-size:0.9rem;color:#aaa;">Banda de música e asociación cultural dende 1840.</p>
+          <p class="mb-0 footer-muted" style="font-size:0.9rem;">Banda de música e asociación cultural dende 1840.</p>
         </div>
         <div class="col-md-4">
           <p class="fw-bold mb-2" style="color:var(--secondary)">Contacto</p>
           <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-solid fa-envelope me-2"></i><a target="_blank" href="mailto:banda@lira.gal">banda@lira.gal</a>
+            <i class="fa-solid fa-envelope me-2" aria-hidden="true"></i><a href="mailto:banda@lira.gal">banda@lira.gal</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-solid fa-phone me-2"></i><a href="tel:+34626658976">626 658 976</a>
+            <i class="fa-solid fa-phone me-2" aria-hidden="true"></i><a href="tel:+34626658976">626 658 976</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-brands fa-whatsapp me-2"></i><a href="https://wa.me/34626658976">WhatsApp</a>
+            <i class="fa-brands fa-whatsapp me-2" aria-hidden="true"></i><a target="_blank" rel="noopener noreferrer" href="https://wa.me/34626658976" aria-label="WhatsApp (abre nunha nova xanela)">WhatsApp</a>
           </div>
         </div>
         <div class="col-md-4">
           <p class="fw-bold mb-2" style="color:var(--secondary)">Redes sociais</p>
           <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" href="https://www.instagram.com/bandalira/"><i
-                class="fa-brands fa-instagram me-2"></i>Instagram</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/bandalira/" aria-label="Instagram (abre nunha nova xanela)"><i
+                class="fa-brands fa-instagram me-2" aria-hidden="true"></i>Instagram</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" href="https://www.facebook.com/LiraRibadavia"><i
-                class="fa-brands fa-facebook me-2"></i>Facebook</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/LiraRibadavia" aria-label="Facebook (abre nunha nova xanela)"><i
+                class="fa-brands fa-facebook me-2" aria-hidden="true"></i>Facebook</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" href="https://www.youtube.com/@LiraRibadavia"><i
-                class="fa-brands fa-youtube me-2"></i>YouTube</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@LiraRibadavia" aria-label="YouTube (abre nunha nova xanela)"><i
+                class="fa-brands fa-youtube me-2" aria-hidden="true"></i>YouTube</a>
           </div>
         </div>
       </div>
       <hr style="border-color:#333;margin-top:32px;">
-      <p class="text-center mb-0" style="font-size:0.8rem;color:#666;">A Lira de Ribadavia · Rúa Redondela s/n, 32400
+      <p class="text-center mb-0 footer-muted" style="font-size:0.8rem;">A Lira de Ribadavia · Rúa Redondela s/n, 32400
         Ribadavia</p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".toc a");
+    const tocWrapper = document.querySelector(".toc-wrapper");
+    const tocToggle = document.querySelector(".toc-toggle");
+    const navbar = document.querySelector(".navbar");
+    const mobileQuery = window.matchMedia("(max-width: 991px)");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    let lastScroll = window.pageYOffset;
+    let scrollTicking = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          const id = entry.target.getAttribute("id");
+
+          navLinks.forEach(link => {
+            const isActive = link.getAttribute("href") === "#" + id;
+            link.classList.toggle("active", isActive);
+            if (isActive) {
+              link.setAttribute("aria-current", "location");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        });
+      },
+      {
+        rootMargin: "-40% 0px -55% 0px",
+        threshold: 0
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+
+    function closeToc() {
+      tocWrapper.classList.remove("open");
+      tocToggle.setAttribute("aria-expanded", "false");
+    }
+
+    function setTocVisible(isVisible) {
+      tocWrapper.classList.toggle("visible", isVisible);
+    }
+
+    function updateTop() {
+      tocWrapper.style.setProperty("--nav-height", navbar.offsetHeight + "px");
+    }
+
+    function scrollToSection(sectionId, options = {}) {
+      const { updateHash = true, behavior } = options;
+      const targetSection = document.querySelector(sectionId);
+      if (!targetSection) return;
+
+      const navOffset = navbar.offsetHeight;
+      const extraOffset = mobileQuery.matches ? 16 : 20;
+      const targetTop = targetSection.getBoundingClientRect().top + window.scrollY - navOffset - extraOffset;
+
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: behavior ?? (prefersReducedMotion.matches ? "auto" : "smooth")
+      });
+
+      if (updateHash) {
+        history.pushState(null, "", sectionId);
+      }
+    }
+
+    function syncTocVisibility() {
+      if (!mobileQuery.matches) {
+        tocWrapper.classList.remove("visible");
+        closeToc();
+        lastScroll = window.pageYOffset;
+        return;
+      }
+
+      const currentScroll = window.pageYOffset;
+      const scrollDelta = currentScroll - lastScroll;
+
+      if (currentScroll <= 0) {
+        setTocVisible(false);
+        closeToc();
+      } else if (scrollDelta < -6) {
+        setTocVisible(true);
+      } else if (scrollDelta > 6) {
+        setTocVisible(false);
+        closeToc();
+      }
+
+      lastScroll = currentScroll;
+    }
+
+    function requestSyncTocVisibility() {
+      if (scrollTicking) return;
+
+      scrollTicking = true;
+      window.requestAnimationFrame(() => {
+        syncTocVisibility();
+        scrollTicking = false;
+      });
+    }
+
+    updateTop();
+    syncTocVisibility();
+
+    if (window.location.hash) {
+      window.addEventListener("load", () => {
+        scrollToSection(window.location.hash, { updateHash: false, behavior: "auto" });
+      }, { once: true });
+    }
+
+    window.addEventListener("resize", () => {
+      updateTop();
+      syncTocVisibility();
+    });
+
+    window.addEventListener("scroll", requestSyncTocVisibility, { passive: true });
+
+    window.addEventListener("hashchange", () => {
+      if (window.location.hash) {
+        scrollToSection(window.location.hash, { updateHash: false });
+      }
+    });
+
+    window.addEventListener("popstate", () => {
+      if (window.location.hash) {
+        scrollToSection(window.location.hash, { updateHash: false, behavior: "auto" });
+      }
+    });
+
+    tocToggle.addEventListener("click", () => {
+      const isOpen = tocWrapper.classList.toggle("open");
+      tocToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", (event) => {
+        const sectionId = link.getAttribute("href");
+        if (!sectionId || !sectionId.startsWith("#")) return;
+
+        event.preventDefault();
+
+        if (mobileQuery.matches) {
+          closeToc();
+        }
+
+        scrollToSection(sectionId);
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!mobileQuery.matches || !tocWrapper.classList.contains("open")) return;
+      if (tocWrapper.contains(event.target)) return;
+      closeToc();
+    });
+  </script>
+
+
 </body>
 
 </html>

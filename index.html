@@ -192,7 +192,18 @@
     }
 
     a:hover {
-      color: var(--secondary);
+      color: #6f1724;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    .btn:focus-visible,
+    .nav-link:focus-visible,
+    .navbar-brand:focus-visible,
+    .navbar-toggler:focus-visible,
+    iframe:focus-visible {
+      outline: 3px solid var(--secondary);
+      outline-offset: 3px;
     }
 
     .legal-card {
@@ -232,20 +243,25 @@
       color: var(--secondary);
 
     }
+
+    .footer-muted {
+      color: #b7b7b7;
+    }
   </style>
 </head>
 
 <body>
 
-  <a class="skip-link" href="#inicio">Saltar ao contido</a>
+  <a class="skip-link" href="#main-content">Saltar ao contido principal</a>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#inicio">
-        <i class="fa-solid"></i> A Lira de Ribadavia
+        <i class="fa-solid" aria-hidden="true"></i> A Lira de Ribadavia
       </a>
 
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
+        aria-expanded="false" aria-label="Abrir ou pechar o menú de navegación">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -269,6 +285,7 @@
     </div>
   </header>
 
+  <main id="main-content">
   <section id="banda">
     <div class="section-inner">
       <div class="section-card">
@@ -299,11 +316,11 @@
           <div class="col-md-6">
             <h4>O que ofrecemos</h4>
             <ul>
-              <li><i class="fa-solid fa-music"></i> Clases individuais de instrumento</li>
-              <li><i class="fa-solid fa-users"></i> Linguaxe musical e teoría</li>
-              <li><i class="fa-solid fa-drum"></i> Música de conxunto e coro</li>
-              <li><i class="fa-solid fa-graduation-cap"></i> Preparación para exames e certames</li>
-              <li><i class="fa-solid fa-heart"></i> Formación integral musical</li>
+              <li><i class="fa-solid fa-music" aria-hidden="true"></i> Clases individuais de instrumento</li>
+              <li><i class="fa-solid fa-users" aria-hidden="true"></i> Linguaxe musical e teoría</li>
+              <li><i class="fa-solid fa-drum" aria-hidden="true"></i> Música de conxunto e coro</li>
+              <li><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Preparación para exames e certames</li>
+              <li><i class="fa-solid fa-heart" aria-hidden="true"></i> Formación integral musical</li>
             </ul>
           </div>
           <div class="col-md-6">
@@ -331,23 +348,26 @@
             <p>Os establecementos colaboradores teñen o beneficio extra de que o seu logo aparecerá nos carteis das
               nosas actividades.</p>
             <div class="d-flex flex-wrap gap-2 mb-3">
-              <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#formulario"
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#formulario"
+                aria-controls="formulario" aria-expanded="false"
                 data-ga-event="select_content" data-ga-content-type="lead_form" data-ga-content-id="form_embed_open">
                 Asociarse agora
               </button>
 
               <a class="btn btn-outline-primary d-flex align-items-center justify-content-center"
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdSzQqVbrzzFPimYB0MWAKAo0jb91WI0owaoDZkNtCUPO9N3Q/viewform"
-                target="_blank" rel="noopener" aria-label="Abrir formulario en nova xanela"
+                target="_blank" rel="noopener noreferrer" aria-label="Abrir formulario en nova xanela"
                 data-ga-event="select_content" data-ga-content-type="lead_form"
                 data-ga-content-id="form_external_open">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                <span class="visually-hidden">Abrir formulario en nova xanela</span>
               </a>
             </div>
             <div id="formulario" class="collapse">
               <iframe
                 src="https://docs.google.com/forms/d/e/1FAIpQLSdSzQqVbrzzFPimYB0MWAKAo0jb91WI0owaoDZkNtCUPO9N3Q/viewform?embedded=true"
-                width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:8px;">
+                width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:8px;"
+                title="Formulario de asociación á Lira de Ribadavia">
                 Cargando…
               </iframe>
             </div>
@@ -356,7 +376,7 @@
             <h2>Doazóns</h2>
             <p>Se queres apoiar o noso proxecto musical de forma puntual, podes facer unha transferencia.</p>
             <div style="background:var(--bg-soft);border-radius:10px;padding:10px;border:1px solid var(--border);">
-              <p class="mb-1"><i class="fa-solid fa-building-columns me-2"
+              <p class="mb-1"><i class="fa-solid fa-building-columns me-2" aria-hidden="true"
                   style="color:var(--secondary)"></i><strong>IBAN</strong></p>
               <p class="mb-3" style="font-family:monospace;font-size:0.95rem;">ES80 2080 5332 8130 4003 3885</p>
               <p class="mb-1"><strong>Beneficiario:</strong></p>
@@ -378,7 +398,8 @@
           Ribadavia, especialmente a través das bandas de música populares. Desenvolvemos actividades educativas,
           culturais e musicais para enriquecer a comunidade.</p>
         <div class="d-flex flex-wrap gap-2 mt-3">
-          <button class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#directiva">
+          <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#directiva"
+            aria-controls="directiva" aria-expanded="false">
             👥 Ver directiva
           </button>
           <!-- <a href="#" class="btn btn-outline-primary">📄 Estatutos da Asociación</a> -->
@@ -407,47 +428,52 @@
           contactar connosco a través dos datos no pé desta páxina.</p>
 
         <div class="contact contact-line">
-          <i class="fa-solid fa-map-marker-alt"></i>
+          <i class="fa-solid fa-map-marker-alt" aria-hidden="true"></i>
           Rúa Redondela, s/n — 32400 Ribadavia, Ourense (Galicia)
         </div>
         <div class="mt-3 d-flex gap-3 flex-wrap">
-          <a target="_blank" href="https://www.instagram.com/bandalira/" class="btn btn-outline-secondary btn-sm"
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/bandalira/" class="btn btn-outline-secondary btn-sm"
+            aria-label="Instagram (abre nunha nova xanela)"
             data-ga-event="select_content" data-ga-content-type="social_link" data-ga-content-id="instagram_top">
-            <i class="fa-brands fa-instagram"></i> Instagram
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
           </a>
-          <a target="_blank" href="https://www.facebook.com/LiraRibadavia" class="btn btn-outline-secondary btn-sm"
+          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/LiraRibadavia" class="btn btn-outline-secondary btn-sm"
+            aria-label="Facebook (abre nunha nova xanela)"
             data-ga-event="select_content" data-ga-content-type="social_link" data-ga-content-id="facebook_top">
-            <i class="fa-brands fa-facebook"></i> Facebook
+            <i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook
           </a>
-          <a target="_blank" href="https://www.youtube.com/@LiraRibadavia" class="btn btn-outline-secondary btn-sm"
+          <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@LiraRibadavia" class="btn btn-outline-secondary btn-sm"
+            aria-label="YouTube (abre nunha nova xanela)"
             data-ga-event="select_content" data-ga-content-type="social_link" data-ga-content-id="youtube_top">
-            <i class="fa-brands fa-youtube"></i> YouTube
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube
           </a>
         </div>
       </div>
     </div>
   </section>
+  </main>
 
   <footer>
     <div class="container">
       <div class="row text-center text-md-start gy-4">
         <div class="col-md-4">
           <p class="fw-bold mb-1" style="color:var(--secondary)">A Lira de Ribadavia</p>
-          <p class="mb-0" style="font-size:0.9rem;color:#aaa;">Banda de música e asociación cultural dende 1840.</p>
+          <p class="mb-0 footer-muted" style="font-size:0.9rem;">Banda de música e asociación cultural dende 1840.</p>
         </div>
         <div class="col-md-4">
           <p class="fw-bold mb-2" style="color:var(--secondary)">Contacto</p>
           <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-solid fa-envelope me-2"></i><a target="_blank" href="mailto:banda@lira.gal"
+            <i class="fa-solid fa-envelope me-2" aria-hidden="true"></i><a href="mailto:banda@lira.gal"
               data-ga-event="select_content" data-ga-content-type="contact_link"
               data-ga-content-id="email_footer">banda@lira.gal</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-solid fa-phone me-2"></i><a href="tel:+34626658976" data-ga-event="select_content"
+            <i class="fa-solid fa-phone me-2" aria-hidden="true"></i><a href="tel:+34626658976" data-ga-event="select_content"
               data-ga-content-type="contact_link" data-ga-content-id="phone_footer">626 658 976</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <i class="fa-brands fa-whatsapp me-2"></i><a target="_blank" href="https://wa.me/34626658976"
+            <i class="fa-brands fa-whatsapp me-2" aria-hidden="true"></i><a target="_blank" rel="noopener noreferrer" href="https://wa.me/34626658976"
+              aria-label="WhatsApp (abre nunha nova xanela)"
               data-ga-event="select_content" data-ga-content-type="contact_link"
               data-ga-content-id="whatsapp_footer">WhatsApp</a>
           </div>
@@ -455,24 +481,24 @@
         <div class="col-md-4">
           <p class="fw-bold mb-2" style="color:var(--secondary)">Redes sociais</p>
           <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" href="https://www.instagram.com/bandalira/" data-ga-event="select_content"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/bandalira/" aria-label="Instagram (abre nunha nova xanela)" data-ga-event="select_content"
               data-ga-content-type="social_link" data-ga-content-id="instagram_footer"><i
-                class="fa-brands fa-instagram me-2"></i>Instagram</a>
+                class="fa-brands fa-instagram me-2" aria-hidden="true"></i>Instagram</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" href="https://www.facebook.com/LiraRibadavia" data-ga-event="select_content"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/LiraRibadavia" aria-label="Facebook (abre nunha nova xanela)" data-ga-event="select_content"
               data-ga-content-type="social_link" data-ga-content-id="facebook_footer"><i
-                class="fa-brands fa-facebook me-2"></i>Facebook</a>
+                class="fa-brands fa-facebook me-2" aria-hidden="true"></i>Facebook</a>
           </div>
           <div class="contact-line" style="font-size:0.9rem;">
-            <a target="_blank" href="https://www.youtube.com/@LiraRibadavia" data-ga-event="select_content"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@LiraRibadavia" aria-label="YouTube (abre nunha nova xanela)" data-ga-event="select_content"
               data-ga-content-type="social_link" data-ga-content-id="youtube_footer"><i
-                class="fa-brands fa-youtube me-2"></i>YouTube</a>
+                class="fa-brands fa-youtube me-2" aria-hidden="true"></i>YouTube</a>
           </div>
         </div>
       </div>
       <hr style="border-color:#333;margin-top:32px;">
-      <p class="text-center mb-0" style="font-size:0.8rem;color:#666;">A Lira de Ribadavia · Rúa Redondela s/n, 32400
+      <p class="text-center mb-0 footer-muted" style="font-size:0.8rem;">A Lira de Ribadavia · Rúa Redondela s/n, 32400
         Ribadavia</p>
     </div>
   </footer>
@@ -481,6 +507,7 @@
   <script>
     const formulario = document.getElementById('formulario');
     const trackedElements = document.querySelectorAll('[data-ga-event]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let formIntentTracked = false;
 
     function trackGaEvent(eventName, params) {
@@ -509,7 +536,23 @@
       const yOffset = -120; // axusta segundo altura do navbar
       const y = formulario.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      window.scrollTo({ top: y, behavior: prefersReducedMotion.matches ? 'auto' : 'smooth' });
+    });
+
+    document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function (trigger) {
+      const targetSelector = trigger.getAttribute('data-bs-target');
+      if (!targetSelector) return;
+
+      const target = document.querySelector(targetSelector);
+      if (!target) return;
+
+      target.addEventListener('shown.bs.collapse', function () {
+        trigger.setAttribute('aria-expanded', 'true');
+      });
+
+      target.addEventListener('hidden.bs.collapse', function () {
+        trigger.setAttribute('aria-expanded', 'false');
+      });
     });
   </script>
 </body>
