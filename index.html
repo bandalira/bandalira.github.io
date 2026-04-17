@@ -21,6 +21,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
+  <link rel="preload" href="/imaxe.jpg" as="image" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
   <!-- SEO BASICO -->
   <title>A Lira de Ribadavia | Banda de Música e Asociación Cultural</title>
   <meta name="description"
@@ -38,6 +42,9 @@
 
   <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A Lira de Ribadavia" />
+  <meta name="twitter:description" content="Banda de música e asociación cultural en Ribadavia." />
+  <meta name="twitter:image" content="https://lira.gal/imaxe.jpg" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -67,8 +74,40 @@
   "sameAs": [
     "https://www.instagram.com/bandalira/",
     "https://www.facebook.com/LiraRibadavia",
-    "https://www.youtube.com/@LiraRibadavia"
+    "https://www.youtube.com/@LiraRibadavia",
+    "https://gl.wikipedia.org/wiki/A_Lira_de_Ribadavia",
+    "https://egu.xunta.gal/gl/termo/82713"
   ]
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["EducationalOrganization", "MusicSchool"],
+  "name": "Escola de Música Mestre Veneroni",
+  "url": "https://lira.gal/#escola",
+  "description": "Educación musical de calidade para todas as idades, dende nenos ata adultos. Centro de estudos recoñecido pola Xunta de Galicia.",
+  "identifier": {
+    "@type": "PropertyValue",
+    "name": "Código de centro",
+    "value": "32020859"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Asociación Cultural Liradavia",
+    "url": "https://lira.gal"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rúa Redondela, s/n",
+    "postalCode": "32400",
+    "addressLocality": "Ribadavia",
+    "addressRegion": "Ourense",
+    "addressCountry": "ES"
+  },
+  "telephone": "+34626658976",
+  "email": "escola@lira.gal"
 }
 </script>
 
@@ -79,6 +118,11 @@
       --bg-soft: #faf7f2;
       --text: #1f1f1f;
       --border: #e6e0d8;
+    }
+
+    html {
+      scroll-padding-top: 76px;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -262,6 +306,37 @@
     .footer-muted {
       color: #b7b7b7;
     }
+
+    .navbar.scrolled {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      background-color: #212529 !important;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .section-card.fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .section-card.fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 991px) {
+      .navbar-collapse,
+      .navbar .collapsing {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #212529;
+        padding: 0 1rem 1rem;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      }
+    }
   </style>
   {% include "sponsors-styles.njk" %}
 </head>
@@ -301,8 +376,8 @@
     </div>
   </header>
 
-  <main id="main-content">
-  <section id="banda">
+  <main id="main-content" tabindex="-1">
+    <section id="banda">
     <div class="section-inner">
       <div class="section-card">
         <h2>A Lira</h2>
@@ -379,14 +454,15 @@
                 <span class="visually-hidden">Abrir formulario en nova xanela</span>
               </a>
             </div>
-            <div id="formulario" class="collapse">
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSdSzQqVbrzzFPimYB0MWAKAo0jb91WI0owaoDZkNtCUPO9N3Q/viewform?embedded=true"
-                width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:8px;"
-                title="Formulario de asociación á Lira de Ribadavia">
-                Cargando…
-              </iframe>
-            </div>
+              <div id="formulario" class="collapse">
+                <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSdSzQqVbrzzFPimYB0MWAKAo0jb91WI0owaoDZkNtCUPO9N3Q/viewform?embedded=true"
+                  width="100%" height="650" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:8px; min-height: 80vh;"
+                  loading="lazy"
+                  title="Formulario de asociación á Lira de Ribadavia">
+                  Cargando…
+                </iframe>
+              </div>
           </div>
           <div class="col-md-5">
             <h2>Doazóns</h2>
@@ -522,6 +598,52 @@
       target.addEventListener('hidden.bs.collapse', function () {
         trigger.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    // Observer para animacións ao facer scroll
+    if (!prefersReducedMotion.matches && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.section-card').forEach(el => {
+        el.classList.add('fade-up');
+        observer.observe(el);
+      });
+    }
+
+    // Navbar sticky shadow e blur
+    const nav = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // Pechar o menú módil ao facer clic nun link ou fóra del
+    const navbarCollapse = document.getElementById('nav');
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navbarCollapse.classList.contains('show')) {
+          bsCollapse.hide();
+        }
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      const isClickInside = navbarCollapse.contains(event.target) || event.target.closest('.navbar-toggler');
+      if (!isClickInside && navbarCollapse.classList.contains('show')) {
+        bsCollapse.hide();
+      }
     });
   </script>
 </body>
