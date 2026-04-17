@@ -26,7 +26,7 @@ module.exports = [
   {
     name: "Inmobiliaria As Casiñas",
     url: "https://inmolascasitas.com/",
-    logo: "/logos/295_asCasiñas.png",
+    logo: "/logos/295_asCasinhas.png",
     alt: "Logo de As Casiñas"
   },
   {
@@ -107,5 +107,11 @@ module.exports = [
     name: "A Lareira",
     logo: "/logos/345_aLareira.png",
     alt: "Logo de A Lareira"
+  },
+  {
+    name: "Consultoría Hermanos Castiñeiras",
+    url: "https://www.asesoriacastineiras.es/",
+    logo: "/logos/346_consultingHermanosCastinheiras.png",
+    alt: "Logo de Consultoría Hermanos Castiñeiras"
   }
 ];
