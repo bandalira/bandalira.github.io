@@ -25,11 +25,14 @@ sitemapChangefreq: "weekly"
     });
   </script>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NF56ZWD2');</script>
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NF56ZWD2');</script>
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,6 +96,7 @@ sitemapChangefreq: "weekly"
     "https://www.instagram.com/bandalira/",
     "https://www.facebook.com/LiraRibadavia",
     "https://www.youtube.com/@LiraRibadavia",
+    "https://whatsapp.com/channel/0029Vb8hJn947Xe27qiBfC3k",
     "https://gl.wikipedia.org/wiki/A_Lira_de_Ribadavia",
     "https://egu.xunta.gal/gl/termo/82713"
   ]
@@ -240,9 +244,11 @@ sitemapChangefreq: "weekly"
       .section-inner {
         padding: 0 16px;
       }
+
       .section-card {
         padding: 20px 16px;
       }
+
       .legal-card {
         padding: 20px 16px;
       }
@@ -387,15 +393,17 @@ sitemapChangefreq: "weekly"
     }
 
     /* Ocultar widget Cookiebot nesta páxina */
-    #CookiebotWidget { display: none !important; }
+    #CookiebotWidget {
+      display: none !important;
+    }
   </style>
   {% include "sponsors-styles.njk" %}
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF56ZWD2"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF56ZWD2" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
 
@@ -482,8 +490,8 @@ sitemapChangefreq: "weekly"
             </div>
           </div>
           <div class="mt-4">
-            <a class="btn btn-primary" href="/escola/" data-ga-event="select_content"
-              data-ga-content-type="escola_link" data-ga-content-id="escola_completa">Máis información e inscrición</a>
+            <a class="btn btn-primary" href="/escola/" data-ga-event="select_content" data-ga-content-type="escola_link"
+              data-ga-content-id="escola_completa">Máis información e inscrición</a>
           </div>
         </div>
       </div>
@@ -536,7 +544,7 @@ sitemapChangefreq: "weekly"
                     style="color:var(--secondary)"></i><strong>IBAN</strong></p>
                 <p class="mb-3" style="font-family:monospace;font-size:0.95rem;">ES80 2080 5332 8130 4003 3885</p>
                 <p class="mb-1"><strong>Beneficiario:</strong></p>
-                <p class="mb-0" style="font-family:monospace;font-size:0.95rem;">ASOC. CULTURAL LIRADAVIA</p>
+                <p class="mb-0" style="font-family:monospace;font-size:0.95rem;">ASOC CULTURAL LIRADAVIA</p>
               </div>
             </div>
           </div>
@@ -603,6 +611,11 @@ sitemapChangefreq: "weekly"
               class="btn btn-outline-secondary btn-sm" aria-label="YouTube (abre nunha nova xanela)"
               data-ga-event="select_content" data-ga-content-type="social_link" data-ga-content-id="youtube_top">
               <i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href="https://whatsapp.com/channel/0029Vb8hJn947Xe27qiBfC3k"
+              class="btn btn-outline-secondary btn-sm" aria-label="Canle de WhatsApp (abre nunha nova xanela)"
+              data-ga-event="select_content" data-ga-content-type="social_link" data-ga-content-id="whatsapp_channel_top">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Canle de WhatsApp
             </a>
           </div>
         </div>
