@@ -71,9 +71,15 @@ sitemapChangefreq: "weekly"
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     .iban-toast {
+      position: absolute;
+      top: -1.6em;
+      left: 0;
       font-family: system-ui, sans-serif;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
+      background: var(--bg-soft, #f8f9fa);
       color: var(--secondary, #198754);
+      padding: 2px 8px;
+      border-radius: 6px;
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -556,8 +562,8 @@ sitemapChangefreq: "weekly"
               <div style="background:var(--bg-soft);border-radius:10px;padding:10px;border:1px solid var(--border);">
                 <p class="mb-1"><i class="fa-solid fa-building-columns me-2" aria-hidden="true"
                     style="color:var(--secondary)"></i><strong>IBAN</strong></p>
-                <p class="mb-3 d-flex align-items-center gap-2" style="font-family:monospace;font-size:0.95rem;">
-                  <span id="iban-text">ES80 2080 5332 8130 4003 3885</span>
+                <p class="mb-3 d-flex align-items-center gap-2" style="font-family:monospace;font-size:0.95rem;position:relative;">
+                  <span id="iban-text">ES8020805332813040033885</span>
                   <button id="iban-copy-btn"
                     onclick="navigator.clipboard.writeText(document.getElementById('iban-text').textContent.replace(/\s/g,'')).then(()=>{const msg=document.getElementById('iban-toast');msg.classList.add('show');setTimeout(()=>msg.classList.remove('show'),2000)})"
                     class="btn btn-sm btn-outline-secondary" style="border:none;padding:2px 6px;font-size:0.85rem;"
