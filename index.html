@@ -542,7 +542,15 @@ sitemapChangefreq: "weekly"
               <div style="background:var(--bg-soft);border-radius:10px;padding:10px;border:1px solid var(--border);">
                 <p class="mb-1"><i class="fa-solid fa-building-columns me-2" aria-hidden="true"
                     style="color:var(--secondary)"></i><strong>IBAN</strong></p>
-                <p class="mb-3" style="font-family:monospace;font-size:0.95rem;">ES80 2080 5332 8130 4003 3885</p>
+                <p class="mb-3 d-flex align-items-center gap-2" style="font-family:monospace;font-size:0.95rem;">
+                  <span id="iban-text">ES80 2080 5332 8130 4003 3885</span>
+                  <button
+                    onclick="navigator.clipboard.writeText(document.getElementById('iban-text').textContent.trim()).then(()=>{const b=this;b.innerHTML='<i class=\'fa-solid fa-check\'></i>';setTimeout(()=>b.innerHTML='<i class=\'fa-regular fa-copy\'></i>',1500)})"
+                    class="btn btn-sm btn-outline-secondary" style="border:none;padding:2px 6px;font-size:0.85rem;"
+                    title="Copiar IBAN">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </p>
                 <p class="mb-1"><strong>Beneficiario:</strong></p>
                 <p class="mb-0" style="font-family:monospace;font-size:0.95rem;">ASOC CULTURAL LIRADAVIA</p>
               </div>
@@ -573,11 +581,9 @@ sitemapChangefreq: "weekly"
           <div id="directiva" class="collapse mt-3">
             <ul class="list-unstyled">
               <li><strong>Presidente:</strong> Iván Estévez Sabucedo</li>
-              <li><strong>Vicepresidente:</strong> Eloi Pousa Mosquera</li>
-              <li><strong>Secretario:</strong> David Rodríguez Vello</li>
+              <li><strong>Secretario:</strong> Daniel Rodríguez Rodríguez</li>
               <li><strong>Tesoureira:</strong> Vanessa Martínez Suárez</li>
               <li><strong>Vocal:</strong> Cristina González Fernández</li>
-              <li><strong>Vocal:</strong> Daniel Rodríguez Rodríguez</li>
               <li><strong>Vocal:</strong> Modesto Rodríguez Meiriño</li>
             </ul>
           </div>
@@ -614,7 +620,8 @@ sitemapChangefreq: "weekly"
             </a>
             <a target="_blank" rel="noopener noreferrer" href="https://whatsapp.com/channel/0029Vb8hJn947Xe27qiBfC3k"
               class="btn btn-outline-secondary btn-sm" aria-label="Canle de WhatsApp (abre nunha nova xanela)"
-              data-ga-event="select_content" data-ga-content-type="social_link" data-ga-content-id="whatsapp_channel_top">
+              data-ga-event="select_content" data-ga-content-type="social_link"
+              data-ga-content-id="whatsapp_channel_top">
               <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Canle de WhatsApp
             </a>
           </div>
