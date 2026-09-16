@@ -72,8 +72,9 @@ sitemapChangefreq: "weekly"
   <style>
     .iban-toast {
       position: absolute;
-      top: -1.6em;
-      left: 0;
+      bottom: -1.4em;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: system-ui, sans-serif;
       font-size: 0.78rem;
       background: var(--bg-soft, #f8f9fa);
@@ -87,6 +88,13 @@ sitemapChangefreq: "weekly"
     }
     .iban-toast.show {
       opacity: 1;
+    }
+    #iban-copy-btn:focus,
+    #iban-copy-btn:active {
+      outline: none;
+      box-shadow: none;
+      background: transparent;
+      color: inherit;
     }
   </style>
 
@@ -563,9 +571,9 @@ sitemapChangefreq: "weekly"
                 <p class="mb-1"><i class="fa-solid fa-building-columns me-2" aria-hidden="true"
                     style="color:var(--secondary)"></i><strong>IBAN</strong></p>
                 <p class="mb-3 d-flex align-items-center gap-2" style="font-family:monospace;font-size:0.95rem;position:relative;">
-                  <span id="iban-text">ES8020805332813040033885</span>
+                  <span id="iban-text">ES80 2080 5332 8130 4003 3885</span>
                   <button id="iban-copy-btn"
-                    onclick="navigator.clipboard.writeText(document.getElementById('iban-text').textContent.replace(/\s/g,'')).then(()=>{const msg=document.getElementById('iban-toast');msg.classList.add('show');setTimeout(()=>msg.classList.remove('show'),2000)})"
+                    onclick="navigator.clipboard.writeText(document.getElementById('iban-text').textContent.replace(/\s/g,'')).then(()=>{this.blur();const msg=document.getElementById('iban-toast');msg.classList.add('show');setTimeout(()=>msg.classList.remove('show'),2000)})"
                     class="btn btn-sm btn-outline-secondary" style="border:none;padding:2px 6px;font-size:0.85rem;"
                     title="Copiar IBAN">
                     <i class="fa-regular fa-copy"></i>
