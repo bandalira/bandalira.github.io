@@ -36,13 +36,14 @@ sitemapChangefreq: "weekly"
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <link rel="preload" href="/imaxe.jpg" as="image" />
+  <link rel="preload" href="/imaxe.jpg" as="image" fetchpriority="high" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
@@ -67,8 +68,12 @@ sitemapChangefreq: "weekly"
   <meta name="twitter:description" content="Banda de música e asociación cultural en Ribadavia." />
   <meta name="twitter:image" content="https://lira.gal/imaxe.jpg" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha384-/o6I2CkkWC//PSjvWC/eYN7l3xM3tJm8ZzVkCOfp//W05QcE3mlGskpoHB6XqI+B" crossorigin="anonymous"
+    referrerpolicy="no-referrer">
   <style>
     .iban-toast {
       position: absolute;
@@ -86,15 +91,19 @@ sitemapChangefreq: "weekly"
       pointer-events: none;
       white-space: nowrap;
     }
+
     .iban-toast.show {
       opacity: 1;
     }
-    #iban-copy-btn:focus,
-    #iban-copy-btn:active {
-      outline: none;
-      box-shadow: none;
-      background: transparent;
-      color: inherit;
+
+    #iban-copy-btn {
+      min-inline-size: 24px;
+      min-block-size: 24px;
+    }
+
+    #iban-copy-btn:focus-visible {
+      outline: 2px solid var(--primary, #8B1E2D);
+      outline-offset: 2px;
     }
   </style>
 
@@ -570,15 +579,14 @@ sitemapChangefreq: "weekly"
               <div style="background:var(--bg-soft);border-radius:10px;padding:10px;border:1px solid var(--border);">
                 <p class="mb-1"><i class="fa-solid fa-building-columns me-2" aria-hidden="true"
                     style="color:var(--secondary)"></i><strong>IBAN</strong></p>
-                <p class="mb-3 d-flex align-items-center gap-2" style="font-family:monospace;font-size:0.95rem;position:relative;">
+                <p class="mb-3 d-flex align-items-center gap-2"
+                  style="font-family:monospace;font-size:0.95rem;position:relative;">
                   <span id="iban-text">ES80 2080 5332 8130 4003 3885</span>
-                  <button id="iban-copy-btn"
-                    onclick="navigator.clipboard.writeText(document.getElementById('iban-text').textContent.replace(/\s/g,'')).then(()=>{this.blur();const msg=document.getElementById('iban-toast');msg.classList.add('show');setTimeout(()=>msg.classList.remove('show'),2000)})"
-                    class="btn btn-sm btn-outline-secondary" style="border:none;padding:2px 6px;font-size:0.85rem;"
-                    title="Copiar IBAN">
-                    <i class="fa-regular fa-copy"></i>
+                  <button type="button" id="iban-copy-btn" class="btn btn-sm btn-outline-secondary"
+                    style="border:none;padding:2px 6px;font-size:0.85rem;" aria-label="Copiar IBAN" title="Copiar IBAN">
+                    <i class="fa-regular fa-copy" aria-hidden="true"></i>
                   </button>
-                  <span id="iban-toast" class="iban-toast">✅ IBAN copiado!</span>
+                  <span id="iban-toast" class="iban-toast" role="status"></span>
                 </p>
                 <p class="mb-1"><strong>Beneficiario:</strong></p>
                 <p class="mb-0" style="font-family:monospace;font-size:0.95rem;">ASOC CULTURAL LIRADAVIA</p>
@@ -604,7 +612,8 @@ sitemapChangefreq: "weekly"
               data-bs-target="#directiva" aria-controls="directiva" aria-expanded="false">
               👥 Ver directiva
             </button>
-            <a href="https://drive.google.com/file/d/1awvmy6L7SVBSEd_xNyj-kngIxtuiPkH7/view?usp=sharing" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">📄 Estatutos da Asociación</a>
+            <a href="https://drive.google.com/file/d/1awvmy6L7SVBSEd_xNyj-kngIxtuiPkH7/view?usp=sharing"
+              class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">📄 Estatutos da Asociación</a>
           </div>
 
           <div id="directiva" class="collapse mt-3">
@@ -662,7 +671,9 @@ sitemapChangefreq: "weekly"
   {% include "sponsors.njk" %}
   {% include "footer.njk" %}
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
   <script>
     const formulario = document.getElementById('formulario');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -759,6 +770,29 @@ sitemapChangefreq: "weekly"
         bsCollapse.hide();
       }
     });
+
+    // Copiar IBAN con feedback accesible
+    const ibanCopyBtn = document.getElementById('iban-copy-btn');
+    const ibanToast = document.getElementById('iban-toast');
+    let ibanToastTimer;
+
+    if (ibanCopyBtn && ibanToast) {
+      ibanCopyBtn.addEventListener('click', async () => {
+        const text = document.getElementById('iban-text').textContent.replace(/\s/g, '');
+        clearTimeout(ibanToastTimer);
+        try {
+          await navigator.clipboard.writeText(text);
+          ibanToast.textContent = '✅ IBAN copiado!';
+        } catch {
+          ibanToast.textContent = '❌ Non se puido copiar';
+        }
+        ibanToast.classList.add('show');
+        ibanToastTimer = setTimeout(() => {
+          ibanToast.classList.remove('show');
+          ibanToast.textContent = '';
+        }, 2000);
+      });
+    }
   </script>
 </body>
 

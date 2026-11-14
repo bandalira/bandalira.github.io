@@ -36,6 +36,7 @@ sitemapChangefreq: "yearly"
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Historia - A Lira de Ribadavia</title>
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -79,8 +80,12 @@ sitemapChangefreq: "yearly"
 }
 </script>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha384-/o6I2CkkWC//PSjvWC/eYN7l3xM3tJm8ZzVkCOfp//W05QcE3mlGskpoHB6XqI+B" crossorigin="anonymous"
+    referrerpolicy="no-referrer">
   <style>
     :root {
       --primary: #8B1E2D;
@@ -466,7 +471,7 @@ sitemapChangefreq: "yearly"
           </aside>
 
           <main class="col-12 col-lg-9">
-            <section id="nacemento">
+            <section id="nacemento" tabindex="-1">
               <h2>Das orixes ao primeiro esplendor</h2>
               <h3>Unha tradición que vén de lonxe</h3>
 
@@ -516,7 +521,7 @@ sitemapChangefreq: "yearly"
                 marfil.</p>
             </section>
 
-            <section id="emigracion">
+            <section id="emigracion" tabindex="-1">
               <h2>Crise e emigración</h2>
               <h3>A emigración</h3>
 
@@ -564,7 +569,7 @@ sitemapChangefreq: "yearly"
                 os propios músicos deixaron de recoñecelo como director, traéndo pola súa conta a Faustino Temes.</p>
             </section>
 
-            <section id="golpe">
+            <section id="golpe" tabindex="-1">
               <h2>Guerra e decadencia</h2>
               <h3>O Golpe de Estado, a sublevación e a Guerra Civil</h3>
               <p>O Golpe de Estado de 1936, coa sublevación de parte do exército, desencadeou a Guerra Civil, unha etapa
@@ -587,7 +592,7 @@ sitemapChangefreq: "yearly"
                 coa súa retirada tras 22 anos de dirección.</p>
             </section>
 
-            <section id="eramoderna">
+            <section id="eramoderna" tabindex="-1">
               <h2>Reconstrución e transformación</h2>
 
               <h3>O final dunha era e o difícil camiño da continuidade</h3>
@@ -643,7 +648,7 @@ sitemapChangefreq: "yearly"
               <p>Facía falta algo máis que experiencia: era necesario un cambio profundo de enfoque.</p>
             </section>
 
-            <section id="actualidade">
+            <section id="actualidade" tabindex="-1">
               <h2>Renovación e etapa contemporánea</h2>
 
               <h3>A renovación: reconstruír desde dentro</h3>
@@ -745,7 +750,7 @@ sitemapChangefreq: "yearly"
 
             </section>
 
-            <section id="proxectos">
+            <section id="proxectos" tabindex="-1">
               <h2>Proxectos de futuro</h2>
               <p>A continuidade da Lira depende, como ao longo da súa historia, da capacidade para garantir o relevo
                 xeracional e a estabilidade da súa estrutura organizativa.</p>
@@ -772,7 +777,9 @@ sitemapChangefreq: "yearly"
   {% include "sponsors.njk" %}
   {% include "footer.njk" %}
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
 
   <script>
     const sections = document.querySelectorAll("section[id]");
@@ -781,6 +788,7 @@ sitemapChangefreq: "yearly"
     const tocToggle = document.querySelector(".toc-toggle");
     const navbar = document.querySelector(".navbar");
     const mobileQuery = window.matchMedia("(max-width: 991px)");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     let lastScroll = window.pageYOffset;
 
@@ -792,7 +800,9 @@ sitemapChangefreq: "yearly"
           const id = entry.target.getAttribute("id");
 
           navLinks.forEach(link => {
-            link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+            const isActive = link.getAttribute("href") === "#" + id;
+            link.classList.toggle("active", isActive);
+            link.setAttribute("aria-current", isActive ? "true" : "false");
           });
         });
       },
@@ -827,7 +837,7 @@ sitemapChangefreq: "yearly"
 
       window.scrollTo({
         top: Math.max(0, targetTop),
-        behavior: "smooth"
+        behavior: prefersReducedMotion.matches ? "auto" : "smooth"
       });
 
       if (updateHash) {

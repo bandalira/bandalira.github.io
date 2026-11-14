@@ -36,6 +36,7 @@ sitemapChangefreq: "monthly"
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Escola de Música Mestre Veneroni — A Lira de Ribadavia</title>
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -91,8 +92,8 @@ sitemapChangefreq: "monthly"
 }
 </script>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha384-/o6I2CkkWC//PSjvWC/eYN7l3xM3tJm8ZzVkCOfp//W05QcE3mlGskpoHB6XqI+B" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
     :root {
       --primary: #8B1E2D;
@@ -525,7 +526,7 @@ sitemapChangefreq: "monthly"
           </aside>
 
           <main class="col-12 col-lg-9">
-            <section id="sobre">
+            <section id="sobre" tabindex="-1">
               <h2>Sobre a Escola</h2>
               <div class="info-badge">
                 <p class="mb-0"><strong>Centro de estudos musicais recoñecido pola Xunta de Galicia</strong><br>
@@ -542,7 +543,7 @@ sitemapChangefreq: "monthly"
                 ensino accesible e de calidade, promovendo a cultura musical entre toda a veciñanza.</p>
             </section>
 
-            <section id="materias">
+            <section id="materias" tabindex="-1">
               <h2>Materias e instrumentos</h2>
               <p>A nosa escola ofrece unha formación musical integral e adaptada, combinando a aprendizaxe teórica e
                 instrumental en grupo e de forma individual.</p>
@@ -576,7 +577,7 @@ sitemapChangefreq: "monthly"
               </div>
             </section>
 
-            <section id="obxectivos">
+            <section id="obxectivos" tabindex="-1">
               <h2>Obxectivos formativos</h2>
               <p>O noso proxecto pedagóxico e formativo ten como meta principal achegar a música a todas as persoas,
                 pero cunha clara vocación comunitaria:</p>
@@ -592,7 +593,7 @@ sitemapChangefreq: "monthly"
               </ul>
             </section>
 
-            <section id="inscricion">
+            <section id="inscricion" tabindex="-1">
               <h2>Inscrición e matrícula</h2>
               <p>O prazo de preinscrición e matrícula para o curso académico 2026/2027 está aberto. Podes realizar o
                 proceso cómodamente a través do seguinte formulario.</p>
@@ -624,7 +625,7 @@ sitemapChangefreq: "monthly"
               </div>
             </section>
 
-            <section id="normativa">
+            <section id="normativa" tabindex="-1">
               <h2>Normativa e cotas</h2>
               <p class="mb-4">Ao tratarse dunha escola asociativa integrada nun proxecto cultural sen ánimo de lucro, o
                 funcionamento da mesma réxese por unha serie de normas organizativas e económicas fundamentais para
@@ -744,7 +745,7 @@ sitemapChangefreq: "monthly"
   {% include "sponsors.njk" %}
   {% include "footer.njk" %}
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
     const sections = document.querySelectorAll("section[id]");
@@ -817,7 +818,9 @@ sitemapChangefreq: "monthly"
           const id = entry.target.getAttribute("id");
 
           navLinks.forEach(link => {
-            link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+            const isActive = link.getAttribute("href") === "#" + id;
+            link.classList.toggle("active", isActive);
+            link.setAttribute("aria-current", isActive ? "true" : "false");
           });
         });
       },
