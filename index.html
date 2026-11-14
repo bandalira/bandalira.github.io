@@ -761,6 +761,12 @@ sitemapChangefreq: "weekly"
       }
     });
 
+    window.addEventListener('scroll', () => {
+      if (navbarCollapse.classList.contains('show')) {
+        bsCollapse.hide();
+      }
+    }, { passive: true });
+
     // Copiar IBAN con feedback accesible
     const ibanCopyBtn = document.getElementById('iban-copy-btn');
     const ibanToast = document.getElementById('iban-toast');

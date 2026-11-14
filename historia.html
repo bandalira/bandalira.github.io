@@ -834,6 +834,8 @@ sitemapChangefreq: "yearly"
         behavior: prefersReducedMotion.matches ? "auto" : "smooth"
       });
 
+      targetSection.focus({ preventScroll: true });
+
       if (updateHash) {
         history.pushState(null, "", sectionId);
       }
@@ -892,6 +894,31 @@ sitemapChangefreq: "yearly"
         scrollToSection(sectionId);
       });
     });
+
+    // Pechar o menú móbil ao facer clic nun link, fóra del, ou ao facer scroll
+    const navbarCollapse = document.getElementById('nav');
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navbarCollapse.classList.contains('show')) {
+          bsCollapse.hide();
+        }
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      const isClickInside = navbarCollapse.contains(event.target) || event.target.closest('.navbar-toggler');
+      if (!isClickInside && navbarCollapse.classList.contains('show')) {
+        bsCollapse.hide();
+      }
+    });
+
+    window.addEventListener('scroll', () => {
+      if (navbarCollapse.classList.contains('show')) {
+        bsCollapse.hide();
+      }
+    }, { passive: true });
   </script>
 
 

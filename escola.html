@@ -858,6 +858,8 @@ sitemapChangefreq: "monthly"
         behavior: prefersReducedMotion.matches ? "auto" : "smooth"
       });
 
+      targetSection.focus({ preventScroll: true });
+
       if (updateHash) {
         history.pushState(null, "", sectionId);
       }
@@ -966,6 +968,12 @@ sitemapChangefreq: "monthly"
         bsCollapse.hide();
       }
     });
+
+    window.addEventListener('scroll', () => {
+      if (navbarCollapse.classList.contains('show')) {
+        bsCollapse.hide();
+      }
+    }, { passive: true });
   </script>
 </body>
 
